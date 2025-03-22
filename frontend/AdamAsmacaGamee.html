@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Adam Asmaca Oyunu</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      text-align: center;
+      padding: 30px;
+    }
+
+    #word {
+      font-size: 2rem;
+      letter-spacing: 10px;
+      margin-bottom: 20px;
+    }
+
+    #letters button {
+      margin: 5px;
+      padding: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    #message {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    #lives {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+
+    #adam {
+      position: relative;
+      width: 100px;
+      height: 200px;
+      margin: 0 auto 20px auto;
+    }
+
+    #adam div {
+      position: absolute;
+      background-color: #333;
+      display: none;
+    }
+
+    .kafa {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      top: 0;
+      left: 30px;
+      background-color: #444;
+    }
+
+    .govde {
+      width: 10px;
+      height: 60px;
+      top: 40px;
+      left: 45px;
+    }
+
+    .kol.sol {
+      width: 40px;
+      height: 5px;
+      top: 50px;
+      left: 5px;
+      transform: rotate(-30deg);
+    }
+
+    .kol.sag {
+      width: 40px;
+      height: 5px;
+      top: 50px;
+      left: 55px;
+      transform: rotate(30deg);
+    }
+
+    .bacak.sol {
+      width: 40px;
+      height: 5px;
+      top: 110px;
+      left: 5px;
+      transform: rotate(-20deg);
+      transform-origin: left;
+    }
+
+    .bacak.sag {
+      width: 40px;
+      height: 5px;
+      top: 110px;
+      left: 55px;
+      transform: rotate(20deg);
+      transform-origin: right;
+    }
+
+    #adam::before {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 150px;
+      background-color: #666;
+      left: -30px;
+      top: 0;
+    }
+
+    #adam::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 10px;
+      background-color: #666;
+      left: -30px;
+      top: 0;
+    }
+
+    #ipucuGosterici {
+      cursor: pointer;
+      text-decoration: underline;
+      color: #0077cc;
+    }
+
+    #tekrarBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎩 Adam Asmaca</h1>
+
+  <div id="adam">
+    <div class="kafa"></div>
+    <div class="govde"></div>
+    <div class="kol sol"></div>
+    <div class="kol sag"></div>
+    <div class="bacak sol"></div>
+    <div class="bacak sag"></div>
+  </div>
+
+  <p id="ipucuGosterici">💬 İpucunu görmek ister misin?</p>
+  <p id="ipucu" style="display:none;"></p>
+
+  <p id="word"></p>
+  <div id="letters"></div>
+  <p id="lives">Kalan Can: 6</p>
+  <p id="message"></p>
+
+  <div id="skorPanel">
+    🧮 Oynanan Oyun: <span id="toplamSkor">0</span> |
+    🏆 Kazanılan: <span id="kazancSkor">0</span> |
+    💀 Kaybedilen: <span id="kayipSkor">0</span>
+  </div>
+
+  <button id="tekrarBtn">🔁 Tekrar Oyna</button>
+
+  <script>
+    let toplamSkor = 0;
+    let kazancSkor = 0;
+    let kayipSkor = 0;
+
+    function skorlariGuncelle() {
+      document.getElementById("toplamSkor").textContent = toplamSkor;
+      document.getElementById("kazancSkor").textContent = kazancSkor;
+      document.getElementById("kayipSkor").textContent = kayipSkor;
+    }
+
+    let kayitliSkor = JSON.parse(localStorage.getItem("skorlar"));
+    if (kayitliSkor) {
+      toplamSkor = kayitliSkor.toplamSkor;
+      kazancSkor = kayitliSkor.kazancSkor;
+      kayipSkor = kayitliSkor.kayipSkor;
+      skorlariGuncelle();
+    }
+
+    const kelimeler = [
+      { kelime: "javascript", ipucu: "Web geliştirmede en yaygın kullanılan dil" },
+      { kelime: "bilgisayar", ipucu: "Hesaplama yapabilen elektronik cihaz" },
+      { kelime: "internet", ipucu: "Dünya çapında bilgi ağı" },
+      { kelime: "oyun", ipucu: "Eğlence amaçlı etkileşimli yazılım" },
+      { kelime: "kodlama", ipucu: "Yazılım geliştirmenin temeli" },
+      { kelime: "html", ipucu: "Web sayfalarının iskelet dili" },
+      { kelime: "css", ipucu: "Web sitelerine görsel stil kazandırır" },
+    ];
+
+    const secilen = kelimeler[Math.floor(Math.random() * kelimeler.length)];
+    let seciliKelime = secilen.kelime;
+    let gizliKelime = [];
+    let kalanCan = 6;
+    let harfler = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ".split("");
+
+    for (let i = 0; i < seciliKelime.length; i++) {
+      gizliKelime.push("_");
+    }
+
+    document.getElementById("word").textContent = gizliKelime.join(" ");
+    document.getElementById("ipucu").textContent = "💡 İpucu: " + secilen.ipucu;
+
+    document.getElementById("ipucuGosterici").addEventListener("click", () => {
+      document.getElementById("ipucu").style.display = "block";
+      document.getElementById("ipucuGosterici").style.display = "none";
+    });
+
+    const harfAlani = document.getElementById("letters");
+
+    harfler.forEach(harf => {
+      const buton = document.createElement("button");
+      buton.textContent = harf;
+      buton.addEventListener("click", () => harfKontrol(harf, buton));
+      harfAlani.appendChild(buton);
+    });
+
+    function harfKontrol(harf, buton) {
+      buton.disabled = true;
+      let dogruMu = false;
+
+      for (let i = 0; i < seciliKelime.length; i++) {
+        if (seciliKelime[i].toUpperCase() === harf) {
+          gizliKelime[i] = seciliKelime[i];
+          dogruMu = true;
+        }
+      }
+
+      if (!dogruMu) {
+        kalanCan--;
+        adamCiz(6 - kalanCan);
+        document.getElementById("lives").textContent = "Kalan Can: " + kalanCan;
+      }
+
+      document.getElementById("word").textContent = gizliKelime.join(" ");
+
+      if (!gizliKelime.includes("_")) {
+        document.getElementById("message").textContent = "🎉 Tebrikler! Kelimeyi bildin!";
+        harfAlani.innerHTML = "";
+        kazancSkor++;
+        toplamSkor++;
+        skorlariGuncelle();
+        localStorage.setItem("skorlar", JSON.stringify({ toplamSkor, kazancSkor, kayipSkor }));
+        document.getElementById("tekrarBtn").style.display = "inline-block";
+      } else if (kalanCan === 0) {
+        document.getElementById("message").textContent = `💀 Kaybettin! Kelime: ${seciliKelime}`;
+        harfAlani.innerHTML = "";
+        kayipSkor++;
+        toplamSkor++;
+        skorlariGuncelle();
+        localStorage.setItem("skorlar", JSON.stringify({ toplamSkor, kazancSkor, kayipSkor }));
+        document.getElementById("tekrarBtn").style.display = "inline-block";
+      }
+    }
+
+    function adamCiz(sayac) {
+      const parcalar = document.querySelectorAll("#adam div");
+      if (parcalar[sayac - 1]) {
+        parcalar[sayac - 1].style.display = "block";
+      }
+    }
+
+    document.getElementById("tekrarBtn").addEventListener("click", () => {
+      location.reload();
+    });
+  </script>
+</body>
+</html>
