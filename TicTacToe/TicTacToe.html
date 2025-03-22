@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input.kutu {
+            height: 100px;
+            width: 100px;
+            font-size: xx-large;
+
+        }
+
+        div.satir {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <div>
+
+        <div class="satir">
+            <input class="kutu" type="button" id="b1" onclick="Oyun(id)">
+            <input class="kutu" type="button" id="b2" onclick="Oyun(id)">
+            <input class="kutu" type="button" id="b3" onclick="Oyun(id)">
+        </div>
+        <div class="satir">
+            <input class="kutu" type="button" id="b4" onclick="Oyun(id)">
+            <input class="kutu" type="button" id="b5" onclick="Oyun(id)">
+            <input class="kutu" type="button" id="b6" onclick="Oyun(id)">
+        </div>
+        <div class="satir">
+            <input class="kutu" type="button" id="b7" onclick="Oyun(id)">
+            <input class="kutu" type="button" id="b8" onclick="Oyun(id)">
+            <input class="kutu" type="button" id="b9" onclick="Oyun(id)">
+        </div>
+    </div>
+    <script>
+
+       //Görev: Şuanda iki kişi bu oyunu oynamaktadır. Bu oyunun bilgisayar ile oynanmasını sağlayınız. (Bilgisayar, RASTGELE boş olan bir yere O yazmalıdır.) Bu şekilde düzenleyiniz.
+
+       //Ör: Biz X yazdık, O, O yazacak. Sonra biz X yazdık. Sonra oi yine O yazacak. Bu şekilde X ya da O kazanana kadar ya da oyun beabere olana kadar devam etmelidir.
+
+
+
+
+        //butonlara müdahale edebilmek için onları DOM'dan elde etmemiz gerekir.
+        //tıklanma adetlerini ve kimlere ait olduğunu belirteceğiz.
+        let kare1 = document.getElementById("b1");
+        let kare2 = document.getElementById("b2");
+        let kare3 = document.getElementById("b3");
+        let kare4 = document.getElementById("b4");
+        let kare5 = document.getElementById("b5");
+        let kare6 = document.getElementById("b6");
+        let kare7 = document.getElementById("b7");
+        let kare8 = document.getElementById("b8");
+        let kare9 = document.getElementById("b9");
+
+        let kareler = [kare1, kare2, kare3, kare4, kare5, kare6, kare7, kare8, kare9];
+
+        let sira = "X";
+        let kazanmaAdimi = 0;
+
+        //önce tıklanan kareyi elde edelim
+        //dolu kareye tıklanınca hata verme yolu ile de yapalım
+
+
+        //rastgele sayı üretme
+
+        //[6,15] arası limitler dahil
+        // let sayi = Math.ceil(Math.random()*10)+5;
+        // alert(sayi);
+
+        function Oyun(id) {
+
+
+
+            let tiklananKare = document.getElementById(id);
+
+            tiklananKare.disabled = true;
+
+            // if (tiklananKare.value != "") {
+            //     alert("Kare doludur!");
+            //     return;
+            // }
+
+            if (sira == "X") {
+                tiklananKare.value = "X";
+                sira = "O";
+            }
+            else {
+                tiklananKare.value = "O";
+                sira = "X";
+            }
+            kazanmaAdimi += 0.5;
+            if (OyunBittiMi()) {
+
+
+                //Pazartesi daha optimize edelim..
+                if (sira == "X")
+                   alert("O," + (kazanmaAdimi) + " kerede kazandı!");
+                else
+                    kazanmaAdimi % 10 != 0 ? alert("X," + (kazanmaAdimi + 0.5) + " kerede kazandı!") : alert("X," + (kazanmaAdimi) + " kerede kazandı!");
+
+                location.reload();
+            }
+
+
+
+
+        }
+        function OyunBittiMi() {
+            if ((b1.value != "" && b1.value == b2.value && b2.value == b3.value)) {
+                b1.style.backgroundColor = b2.style.backgroundColor = b3.style.backgroundColor = "green";
+                return true;
+            }
+
+            if (b4.value != "" && b4.value == b5.value && b5.value == b6.value) {
+                b4.style.backgroundColor = b5.style.backgroundColor = b6.style.backgroundColor = "green";
+                return true;
+            }
+
+            if (b7.value != "" && b7.value == b8.value && b8.value == b9.value) {
+                b7.style.backgroundColor = b8.style.backgroundColor = b9.style.backgroundColor = "green";
+                return true;
+            }
+            if (b1.value != "" && b1.value == b4.value && b4.value == b7.value) {
+                b1.style.backgroundColor = b4.style.backgroundColor = b7.style.backgroundColor = "green";
+                return true;
+            }
+
+            if (b2.value != "" && b2.value == b5.value && b5.value == b8.value) {
+                b2.style.backgroundColor = b5.style.backgroundColor = b8.style.backgroundColor = "green";
+                return true;
+            }
+            if (b3.value != "" && b3.value == b6.value && b6.value == b9.value) {
+
+                b3.style.backgroundColor = b6.style.backgroundColor = b9.style.backgroundColor = "green";
+                return true;
+            }
+
+            if (b1.value != "" && b1.value == b5.value && b5.value == b9.value) {
+
+                b1.style.backgroundColor = b5.style.backgroundColor = b9.style.backgroundColor = "green";
+                return true;
+            }
+            if (b3.value != "" && b3.value == b5.value && b5.value == b7.value) {
+                b3.style.backgroundColor = b5.style.backgroundColor = b7.style.backgroundColor = "green";
+                return true;
+            }
+
+
+            if (kareler.every(e => e.disabled == true)) {
+                alert("Berabere!");
+                location.reload();
+                // if (kareler.every(e => e.value !="")) {
+                //     alert("Berabere!");
+
+            }
+
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
