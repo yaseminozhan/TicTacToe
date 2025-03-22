@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- bütün arkaplan rengi değiştirme -->
+<body style="background-color: chartreuse;">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et atque enim sequi eligendi. Nisi, qui?</p>
+
+    <style>
+        /* h1,h2
+        {
+            background-color: crimson;
+        } */
+
+        /* class:elemanları belirli bir kurala göre biimlendirmek için kategorize eder. */
+
+        p.giriş{
+            background-color: blue;
+        }
+
+        div.gelişme{
+            background-color: cadetblue;
+        }
+
+        .sonuc{
+            background-color: black;
+            color: aliceblue;
+        }
+        div.cerceve{
+            height: 200px;
+            width: 150px;
+            background-color: paleturquoise;
+            overflow-y: scroll;
+            overflow-x:scroll ;
+        }
+        div.boxModel{
+            width: 200px;
+            height: 200px;
+            border: 5px solid orange;
+            padding: 50px; /*içerik ile çerçeve arasındaki mesafe*/
+            margin: 30px; /**/
+        }
+
+        /* .sonuc dediğimiz: sonuç class ına ait olan bütün elemanlar yani taginin ne olduğu önemli değil. */
+    </style>
+
+    <head>
+        <body>
+           <p class="giriş">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero placeat, dolores nesciunt aliquam laboriosam exercitationem cumque ratione blanditiis unde ea dignissimos? Sapiente explicabo at id ducimus, delectus consequatur libero repudiandae. Hic inventore corporis dicta explicabo eligendi maiores perspiciatis impedit! Distinctio nemo quia quisquam officia esse.</p>
+
+           <div class="gelişme">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam esse, atque amet similique ea dolorem asperiores laudantium reiciendis, repellat alias itaque placeat a! Nam eveniet voluptatum sed modi autem dolores provident deserunt quos, nulla necessitatibus. Laboriosam modi aliquid esse praesentium, alias vero facilis, voluptates nesciunt a deserunt nostrum iure libero.</div>
+
+
+           <div class="cerceve">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis consectetur eligendi id doloribus veritatis dicta magnam. Temporibus distinctio beatae nihil assumenda. Saepe exercitationem sit animi accusantium quo quis, necessitatibus iste!
+           Minima architecto unde facere maxime amet veritatis iste molestias, odio suscipit enim eaque sed neque earum aspernatur voluptates harum, esse quasi modi pariatur minus ex. Repellendus, vel. Labore, eligendi laboriosam?
+           Dolorem unde sit laborum minus explicabo cum expedita ducimus reprehenderit labore recusandae nostrum provident, consectetur non totam perferendis, maiores reiciendis, sunt mollitia. Placeat quod fuga alias nihil laudantium labore incidunt!
+           Tenetur, sunt! Consequuntur adipisci laudantium laboriosam iste magni veritatis blanditiis eligendi quae, veniam, quibusdam exercitationem natus repellendus reiciendis? Magnam at impedit rem assumenda molestiae soluta reprehenderit dicta modi quae. Quos.
+           Qui magnam officia nobis nihil tempora dolor quae quia, sit optio, iusto necessitatibus adipisci ut consequatur dolores rerum aut pariatur nam accusamus excepturi? Doloremque est, porro maiores nobis molestias non.</div>
+           
+           <div class="boxModel">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae sunt labore veniam.</div>
+
+            <!-- class kelimesi kullanırken class dediğimiz bir sınıflandırma oluyor. ben bir özellik tanımlayacaksam eğer o oluşturduğum class ı çağırırsam sadece o class içerisindeki alanları dahil eder o özelliklere. -->
+
+            <h2 class="sonuc">Lorem, ipsum.</h2>
+        </body>
+    </head>
+
+
+
+
+    <h2 style="border: 5px; border-style: solid; border-color: black;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia pariatur, quia consequuntur quo suscipit et. Enim sapiente iure quo exercitationem.</h2>
+
+    <!-- daha da kısa yöntemi: -->
+     <h2 style="border: 3px solid red;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, totam!</h2>
+
+     <!-- yani boşluk bırakarak direk özelliklerini bu yöntemle daha kısa yazabilirsin -->
+        <!-- renk karışımı yapılabilir -->
+     <h1 style="background-color: rgb(153,79,79);">Lorem, ipsum.</h1>
+     
+     <p style="border-top: 3px solid red ;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, iure.</p>
+
+</body>
+</html>

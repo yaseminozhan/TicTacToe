@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--04-03-2025 alp hoca ders-->
+    <!--CSS COMBİNATORS selectorler arasındaki ilişkileri belirterek css kuralları yazmamızı sağlar.-->
+    <style>
+        /*virgül koymadan yazarsak eğer bu demektir ki: div içerisindeki p leri alır. virgül koyarsak eğer div ve p olur ama koymazsak yazığımızın içindekiler.*/
+        /* div p{
+            background-color: blueviolet;
+        } */
+        /*divin çocuğu olan p lerin css'ini düzenlemek için */
+        /* div>p{
+            background-color: rgb(86, 86, 207);
+        } */
+
+        /*soldaki elemandan hemen sonra gelen elemanların css sini düzenlemek için*/
+        div+p{
+        background-color: fuchsia;
+
+        }
+        /*divden sonra gelen herhangi ilk elemanın css sini düzenler*/
+        div+*{
+            background-color: rgb(175, 128, 128);
+
+        }
+         
+        
+        div~p{
+            background-color: coral;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- <p>dışarıdaki</p>
+    <div>
+        <p>içindeki</p>
+        <p>içindeki</p>
+    </div>
+    <p>dışarıdaki</p>
+    <div>
+        <p>bütün divlerin içindeki p.</p>
+    </div> -->
+
+    <div>
+        <span><p>abc</p></span>
+         <!-- bunu boyamaz çünkü bu divin içindeki span spanin içindeki p yi almaz.  -->
+        <p>merhaba</p> 
+        <!-- bunları alır çünkü direk div in içindeki p -->
+        <p>merhaba</p>
+    </div>
+
+    <div></div>
+    <p>aaaaaaaaaaa</p>
+
+    <p>EF</p>
+    <div>
+        <p>abc</p>
+    </div>
+</body>
+</html>

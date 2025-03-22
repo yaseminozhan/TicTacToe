@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--05/03/2025 alp hoca ders-->
+
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+        }
+        div.renkler1{
+            background-image: linear-gradient(green,blue); /*gradient en az iki renkten oluşan renklerin birbirleri arasındaki geçişleri gösteren türdür.*/ /*linear ise doğrusal gittiğini gösterir yukarıdan aşağuı gidiyor*/
+            
+        }
+        div.renkler2{
+            background-image: linear-gradient(to rıght, green,blue); /*sağa doğru geçiş */
+           
+        }
+
+        div.renkler4{
+            background-image: radial-gradient( green,blue); /*radial: içten dışarı doğru */
+           
+        }
+        div.renkler5{
+            background-image: radial-gradient( closest-side at 60% 60% ,green,blue,yellow,red); /*iç kısmı düzenliyoruz % ile yer değiştirebiliriz. en son yazdığımız renk tabanı oluyor.*/
+           
+        }
+        div.renkler7{
+            background-image: repeating-radial-gradient(green 10%,blue 12%,yellow 6%,red 15%) ; /*repaiting ile renk tekrarı yapıyoruz.*/
+           
+        }
+        div.renker10{
+            background-image: conic-gradient(pink 10%,purple 20%,red 30%);
+           
+        }
+        h1{
+            text-shadow:-10px -10px 5px blueviolet; /*gölge veririz shadow ile*/
+            color: brown;
+        }
+        div.shadow{
+            background-color: darkcyan;
+            box-shadow: 10px 10px 100px 50px purple; /*gölge açısını buradan ayarlarız.*/
+        }
+        div.transform1{
+            transform: translate(300px,200px); 
+            background-color: dimgray;
+        }
+        div.rotate1{
+            transform: rotate(20deg); /* cisimi çevirme */
+            background-color: aquamarine;
+        }
+        div.boyutlandırma{
+            transform: scale(2,3); /*scale dediğimiz boyutlarının değiştirilimesi yani boyut oralarının değştirilmesini sağlar.*/
+            background-color: blue;
+        }
+        div.transition1{ /*transition:geçiş*/
+            width: 100px;
+            height: 100px;
+            background-color: #496287;
+            border: 2px solid black;
+            transition: width 10s; /*yani eninin geçişini 10 saniyede yap*/
+            transition-delay: 2s; /*delay büyüttüğü yerde beklemeye alıp sonra eski haline dönmesini sağlar */
+
+        }
+        div:hover{
+            width: 300px;
+        }
+        div.gazete{
+            column-count: 2; /*sayfayı iki sütuna bölüyor kaç sütuna böleceğine biz karar verebiliyoruz */
+            background-color: cyan;
+            column-gap: 2px; /*sütunlar arası boşluk demek :gap px ini ayarlayabiliriz*/
+            column-rule-color:black ; /*orta çizgi rengi*/
+            column-rule: 2px;
+            column-rule-style: solid; /*rule:  oraya çizgi solid: çizginin düz olmasını sağlar*/
+        }
+        div.resimler{
+            background-image: url(/01.html/Assets/misha.jpg ), url(/01.html/Assets/arkaplan.jpeg);
+            background-position: right bottom, left top ;
+            background-repeat: no-repeat,repeat;
+        }
+
+        div.yeni{
+            display: inline; /*normalde div blok element ama bundan sonraki bütün divler inline olarak görünecek*/
+            background-color: #FA9A50;
+        }
+        
+    </style>
+
+
+</head>
+<body>
+    <div class="renkler1"></div>
+    <div class="renkler2"></div>
+    <div class="renkler4"></div>
+    <div class="renkler5"></div>
+    <div class="renkler7"></div>
+    <div class="renkler10"></div>
+    <div class="transform1"></div>
+    <div class="rotate1"></div>
+    <div class="transition1"></div>
+    <div class="gazete">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, maxime consequuntur quo iste culpa accusamus totam optio reprehenderit necessitatibus temporibus autem omnis est, molestias fuga, itaque expedita aliquam error? Autem.</div>
+    <!-- <div class="boyutlandırma"></div> -->
+    <div class="shadow">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta, consectetur?
+    Omnis ea similique rem provident quos, consequatur dicta aspernatur iure!
+    Quia iure quisquam sed natus esse laborum similique reiciendis in.</div>
+    <h1>Başlık1</h1>
+    <div class="resimler"></div>
+    <img src="/01.html/Assets/misha.jpg" alt="">
+
+    
+    
+</body>
+</html>

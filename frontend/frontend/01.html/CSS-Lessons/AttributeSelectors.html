@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/*alt attribute'ü yazılmış olan bütün img'lerin düzenlemesini yap.*/
+img[alt]{
+    border: 20px groove orangered;
+}
+/*alt  attributesindeki değere göre işlem yapılacak.*/
+
+/*CONTAİNS: İÇERİR BAŞINDA DA OLUR SONUNDA DA ORTADA DA */
+img[alt="Not Fount"]{
+    border: 20px dotted rgb(12, 12, 148); /*dotted: kesik kesik yapıyor.*/
+}
+/* yıldız eşittir ile içerisinde barındıran değer olunca uygulanacak alan.*/
+img[alt*="ou"]{
+  border: 20px dashed green;
+}
+ 
+/*şapka: başlayan. ab ile başlayan bütün imglerin düzenlemesini yap*/
+img[alt^="ab"]{
+border: 20px dotted magenta;
+}
+
+/*$ : işareti ise biten anlamına geliyor. */
+img[alt$=b]{
+    border: 20px solid olive;
+}
+/*çerçevenin köşelerini oval yapmak için*/
+div.oval{
+    border-radius: 20px ; /*kenarının ovalliğini sağlıyor. sırayla 4 köşesi için px ekleyerek şeklini manuel olarak değştirebiliriz. */
+    border: 2px rebeccapurple solid;
+}
+
+    </style>
+</head>
+<body>
+    <img src="/Assets/Ekran Alıntısı.PNG" alt="Not Fount"> 
+    <img src="/Assets/schecter-c-4-standard-bas-gitar-charcoal-satin-2c75b2c5d9a783e52848e14428eca4da-192789b0182d4560547d723e950fe123-max-pp.jpg" alt="ab" width=500px height="500px"
+    >
+
+    <div class="oval">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim aut non natus iusto doloremque esse?</div>
+
+</body>
+</html>

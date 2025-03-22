@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--07/03/2025 B.H FONKSİYONLAR-->
+</head>
+<body>
+    <script>
+        //var'a aynı isimde iki değişken tanımlayabiliyoruz 
+        //ama lette yapamıyoruz bunu
+var a=30;
+console.log(a);
+var a=50;
+console.log(a);
+
+//functiıon anahtar kelimesi ile tanımlanır. hosting özelliği vardır.return ile kullanılır.
+//hosting: tanımlandığı yerden önce cağırılabilir. diyelim ki değişkeni bininci satırda yazdık. birinci satırda cağırabiliriz.
+
+function selamVer(){
+    console.log("    merhaba dünya");
+
+}
+selamVer();
+
+merhaba();
+function merhaba(){
+    console.log("merhaba")
+}
+
+//return ile çalışma
+
+function kareAl(){
+    return 5*5;
+}
+console.log(kareAl());
+
+//parametre alarak kullanma
+function selamAl(isim){
+    console.log("selamı aldım"+ " " + isim);
+}
+selamAl("yasemin");
+
+//rastgele sayı döndüren fonksiyon :benim yaptığım
+function rastgeleSayi(){
+    return Math.random(); //math.random random sayı verir.
+}
+console.log("Rast gelen sayı: " + rastgeleSayi(1,20));
+
+//olması gerken:
+function rastgeleSayii(){
+    return Math.floor(Math.random()*100)
+}
+console.log(rastgeleSayii());
+
+//toplama işlemi yapan bir fonksiyon yazın iki parametre alsın ve bunu döndürsün.
+function topla(a, b) {
+    return a + b;
+}
+
+console.log(topla(5, 10)); 
+
+//girilen yılın artık yıl olup olmadığını kontrol eden fonksiyon 
+//yıl 4 e tam bölünürse ve 100 e tam bölünmüyorsa +400 e tam bölünüyorsa.
+
+function artikYil(yil) {
+    return (yil % 4 === 0 && yil %100 !=0 && yil %400 ==0)
+}
+console.log(artikYil(2025)); 
+console.log(artikYil(2020));
+
+//egma script ES= 6, ES=7  
+
+
+//function expression : genellikle görünür. const veya let ile bir değişken atanır. hosting yoktur. return ile değer döndürülebilir.
+
+const selam =function () {
+    console.log("selamlar");
+}
+selam();
+
+const kareHesapla =function(){
+    return 6*6;
+}
+console.log(kareHesapla());
+
+const mesaj = function(metin){
+    console.log(metin);
+}
+mesaj("mahmut");
+
+// metni büyük harflere çeviren bunu döndüren bir fonksiyon yazın 
+
+const buyukHafCevir= function(yazi){
+    return yazi.toUpperCase();
+}
+console.log(buyukHafCevir("merhaba dünya"));
+
+//bir dizinin elemanlarını ters çeviren fonksiyon yaz
+
+const dizi= function(dizi){
+    return dizi.reverse();
+}
+console.log(dizi([1,2,3,4]));
+
+//sayı pozitif mi değil mi fonk.
+
+const pozitifMi = function(sayi){
+    return sayi > 0 ? "pozitif" : "negatif";
+}
+console.log(pozitifMi(3));
+console.log(pozitifMi(-30));
+
+
+
+ // => sembolü ile tanımlanır
+  // hosting özelliği yoktur
+ // return gerektirmeyen tek satırlık ifadeler için uygundur.
+
+
+
+const selamla = () => console.log("merhaba")  //tek satırlık return
+selamla();
+
+const kareAll = () => 4*4;
+console.log(kareAl());
+
+const user= {
+    isim: "yasemin",
+    selam : function(){
+        console.log("merhaba "+ this.isim)
+    },
+    selamArrow :  () => {
+        console.log("merhaba "+ this.isim)
+    }
+};
+user.selam();
+user.selamArrow();
+
+// user.selamArrow.bind(user);
+// user.selamArrow.call(user);
+// user.selamArrow.apply(user.isim);
+
+//verilen dizideki tek sayıları filtreyen arrow function 
+
+const tekSayiler = (dizi) => dizi.filter(sayi=> sayi %2 !==0);
+console.log(tekSayiler([1,3,5]));
+
+// bir string tersini döndüren arrow 
+ const tersCevirr= (metin) => metin.split("").reverse().join("");
+ console.log(tersCevirr("selam"));
+
+
+ 
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>InfernoFıghtClub</title >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <style>
+        /* sepet tasarımı*/
+        .cart-badge {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 6px;
+    min-width: 18px;
+    text-align: center;
+}
+
+    </style>
+
+</head>
+<body>
+    
+   <!--navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="assets/logo.webp" alt="Inferno Fight Academy" class="rounded-circle" width="50" height="50" class="me-2">
+            <span class="fw-bold">Inferno Fight Academy</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#hero">Ana Sayfa</a></li>
+                <li class="nav-item"><a class="nav-link" href="#derslerHakkinda">Dersler Hakkında</a></li>
+                <li class="nav-item"><a class="nav-link" href="#Derspaketleri">Ders Paketleri</a></li>
+                <li class="nav-item"><a class="nav-link" href="#hakkimizda">Hakkımızda</a></li>
+                <li class="nav-item"><a class="nav-link" href="#iletisim">İletişim</a></li>
+                <!-- Sepet simgesi -->
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="#" onclick="showCart()">
+                        <i class="bi bi-cart" style="font-size: 24px;"></i>
+                        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+   <!-- Carousel (Arka Plan) -->
+<div id="carouselExample" class="carousel slide w-75 mx-auto position-relative" style="max-height: 600px; overflow: hidden;">
+    <div class="carousel-inner opacity-50"> <!-- Carousel Opaklığı Azaltıldı -->
+        <div class="carousel-item active">
+            <img src="/BoksKlübü/assets/photo1.jpg" class="d-block w-100 carousel-img" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/BoksKlübü/assets/photo2.jpg" class="d-block w-100 carousel-img" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/BoksKlübü/assets/photo3.jpg" class="d-block w-100 carousel-img" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/BoksKlübü/assets/photo4.jpg" class="d-block w-100 carousel-img" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/BoksKlübü/assets/photo5.jpg" class="d-block w-100 carousel-img" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/BoksKlübü/assets/photo6.jpg" class="d-block w-100 carousel-img" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/BoksKlübü/assets/photo7.jpg" class="d-block w-100 carousel-img" alt="...">
+        </div>
+    </div>
+
+    <!-- Hero Bölümü (Carousel Üzerinde) -->
+    <section id="hero" class="position-absolute top-50 start-50 translate-middle text-center bg-dark bg-opacity-75 text-white py-3 px-4 rounded">
+        <h1 class="display-6 fw-bold">Inferno Fight Academy</h1>
+        <p class="lead">Profesyonel dövüş eğitimi ile kendinizi geliştirin!</p>
+        <a href="#derslerHakkinda" class="btn btn-danger btn-sm">Derslere Göz At</a>
+    </section>
+</div>
+
+
+    <!-- Önceki ve Sonraki Butonlar -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+
+
+<!-- Dersler Bölümü -->
+<section id="derslerHakkinda" class="py-5">
+    <div class="container">
+        <p class="text-center">Profesyonel eğitmenlerimizle dövüş sanatlarında ustalaşın!</p>
+
+        <div class="row g-4">
+            <!-- Boks Dersi -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <img src="/BoksKlübü/assets/BoksPhoto.jpg" class="card-img-top img-fluid" style="height: 600px; object-fit: cover;">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title">Boks Dersi</h5>
+                        <p class="card-text flex-grow-1">Profesyonel boks eğitimi ile tekniklerinizi geliştirin.</p>
+                        <button type="button" class="btn btn-danger mt-auto" data-bs-toggle="modal" data-bs-target="#boksModal">
+                            Detaylı Bilgi
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kickboks Dersi -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <img src="/BoksKlübü/assets/kickBoksPhoto.jpg" class="card-img-top img-fluid" style="height: 600px; object-fit: cover;">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title">Kickboks Dersi</h5>
+                        <p class="card-text flex-grow-1">Hızlı ve güçlü tekmelerle rakiplerinizi alt edin.</p>
+                        <button type="button" class="btn btn-danger mt-auto" data-bs-toggle="modal" data-bs-target="#kickboksModal">
+                            Detaylı Bilgi
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MMA Dersi -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <img src="/BoksKlübü/assets/Mmaphoto.jpg" class="card-img-top img-fluid" style="height: 600px; object-fit: cover;">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title">MMA Dersi</h5>
+                        <p class="card-text flex-grow-1">Dünyanın en popüler dövüş sanatında ustalaşın.</p>
+                        <button type="button" class="btn btn-danger mt-auto" data-bs-toggle="modal" data-bs-target="#mmaModal">
+                            Detaylı Bilgi
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Ders Paketleri Bölümü -->
+<section id="Derspaketleri" class="py-5">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-4">Ders Paketleri</h2>
+        <p class="text-center">İster grup derslerine katılın, ister bireysel eğitim alın!</p>
+
+        <div class="row g-4">
+            <!-- Grup Dersleri -->
+            <div class="col-lg-6">
+                <div class="card h-100 shadow">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Grup Dersleri</h4>
+                        <p class="card-text">Belirlenen saatlerde düzenlenen grup derslerine katılın.</p>
+                        
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Ders</th>
+                                    <th>Gün</th>
+                                    <th>Saat</th>
+                                    <th>Fiyat</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Boks</td>
+                                    <td>Pazartesi - Çarşamba - Cuma</td>
+                                    <td>18:00 - 19:30</td>
+                                    <td>₺2500/ay</td>
+                                    <td><button class="btn btn-danger" onclick="addToCart('Grup Boks', '₺2500/ay')">Satın Al</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Kickboks</td>
+                                    <td>Salı - Perşembe</td>
+                                    <td>19:30 - 21:00</td>
+                                    <td>₺2500/ay</td>
+                                    <td><button class="btn btn-danger" onclick="addToCart('Grup Kickboks', '₺2500/ay')">Satın Al</button></td>
+                                </tr>
+                                <tr>
+                                    <td>MMA</td>
+                                    <td>Cumartesi - Pazar</td>
+                                    <td>14:00 - 16:00</td>
+                                    <td>₺2500/ay</td>
+                                    <td><button class="btn btn-danger" onclick="addToCart('Grup MMA', '₺2500/ay')">Satın Al</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bireysel Dersler -->
+            <div class="col-lg-6">
+                <div class="card h-100 shadow">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Bireysel Dersler</h4>
+                        <p class="card-text">Özel eğitmenle birebir antrenman yaparak hızlı ilerleyin.</p>
+
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Ders</th>
+                                    <th>Süre</th>
+                                    <th>Fiyat</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Boks</td>
+                                    <td>1 Saat</td>
+                                    <td>₺3500</td>
+                                    <td><button class="btn btn-danger" onclick="addToCart('Bireysel Boks', '₺3500')">Satın Al</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Kickboks</td>
+                                    <td>1 Saat</td>
+                                    <td>₺2500</td>
+                                    <td><button class="btn btn-danger" onclick="addToCart('Bireysel Kickboks', '₺2500')">Satın Al</button></td>
+                                </tr>
+                                <tr>
+                                    <td>MMA</td>
+                                    <td>1 Saat</td>
+                                    <td>₺4000</td>
+                                    <td><button class="btn btn-danger" onclick="addToCart('Bireysel MMA', '₺4000')">Satın Al</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Hakkımızda Bölümü -->
+<section id="hakkimizda" class="py-5 bg-dark text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Sol Taraf: Görsel -->
+            <div class="col-lg-6 text-center">
+                <img src="/BoksKlübü/assets/logo.webp" class="img-fluid rounded shadow w-75 mx-auto d-block" alt="Inferno Fight Academy">
+            </div>
+
+            <!-- Sağ Taraf: Metin -->
+            <div class="col-lg-6 text-center text-lg-start">
+                <h2 class="fw-bold">Inferno Fight Academy Hakkında</h2>
+                <p class="lead">Inferno Fight Academy olarak, dövüş sanatlarını bir yaşam biçimi olarak görüyor ve öğrencilerimize en iyi eğitimi sunuyoruz. Profesyonel eğitmenlerimizle gücünüzü keşfedin!</p>
+                <p>Gücünüzü artırın, tekniklerinizi geliştirin ve rakiplerinize karşı üstünlük sağlayın. Dövüş sporlarında kendinizi geliştirmek istiyorsanız, doğru yerdesiniz!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Klüp Fotoğrafları Bölümü -->
+<section id="kulupFotograflari" class="py-5 bg-light text-center">
+    <div class="container">
+        <h2 class="fw-bold">Klüp Fotoğrafları</h2>
+        <p>Inferno Fight Academy'nin antrenmanlarını ve atmosferini keşfedin!</p>
+
+        <!-- Buton: Fotoğrafları Aç/Kapat -->
+        <button class="btn btn-danger mb-4" type="button" data-bs-toggle="collapse" data-bs-target="#kulupGalerisi" aria-expanded="false" aria-controls="kulupGalerisi">
+            Klüp Fotoğraflarını Görüntüle
+        </button>
+
+        <!-- Açılır/Kapanır Galeri -->
+        <div class="collapse" id="kulupGalerisi">
+            <div class="row g-4">
+                <!-- Fotoğraf 1 -->
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal1">
+                            <img src="/BoksKlübü/assets/photo1.jpg" class="card-img-top img-fluid rounded" style="height: 400px; object-fit: cover;" alt="Klüp Fotoğrafı 1">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fotoğraf 2 -->
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal2">
+                            <img src="/BoksKlübü/assets/photo2.jpg" class="card-img-top img-fluid rounded" style="height: 400px; object-fit: cover;" alt="Klüp Fotoğrafı 2">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fotoğraf 3 -->
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal3">
+                            <img src="/BoksKlübü/assets/photo3.jpg" class="card-img-top img-fluid rounded" style="height: 400px; object-fit: cover;" alt="Klüp Fotoğrafı 3">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fotoğraf 4 -->
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal4">
+                            <img src="/BoksKlübü/assets/photo6.jpg" class="card-img-top img-fluid rounded" style="height: 400px; object-fit: cover;" alt="Klüp Fotoğrafı 4">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fotoğraf 5 -->
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal5">
+                            <img src="/BoksKlübü/assets/photo7.jpg" class="card-img-top img-fluid rounded" style="height: 400px; object-fit: cover;" alt="Klüp Fotoğrafı 5">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fotoğraf 6 -->
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#lightboxModal6">
+                            <img src="/BoksKlübü/assets/photo8.jpg" class="card-img-top img-fluid rounded" style="height: 400px; object-fit: cover;" alt="Klüp Fotoğrafı 6">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Fotoğraflar için Lightbox Modal -->
+<!-- Fotoğraf 1 Modal -->
+<div class="modal fade" id="lightboxModal1" tabindex="-1" aria-labelledby="lightboxModal1Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="/BoksKlübü/assets/photo1.jpg" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fotoğraf 2 Modal -->
+<div class="modal fade" id="lightboxModal2" tabindex="-1" aria-labelledby="lightboxModal2Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="/BoksKlübü/assets/photo2.jpg" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fotoğraf 3 Modal -->
+<div class="modal fade" id="lightboxModal3" tabindex="-1" aria-labelledby="lightboxModal3Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="/BoksKlübü/assets/photo3.jpg" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fotoğraf 4 Modal -->
+<div class="modal fade" id="lightboxModal4" tabindex="-1" aria-labelledby="lightboxModal4Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="/BoksKlübü/assets/photo6.jpg" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fotoğraf 5 Modal -->
+<div class="modal fade" id="lightboxModal5" tabindex="-1" aria-labelledby="lightboxModal5Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="/BoksKlübü/assets/photo7.jpg" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fotoğraf 6 Modal -->
+<div class="modal fade" id="lightboxModal6" tabindex="-1" aria-labelledby="lightboxModal6Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="/BoksKlübü/assets/photo8.jpg" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!--MODAL-->
+<!-- Boks Modal -->
+<div class="modal fade" id="boksModal" tabindex="-1" aria-labelledby="boksModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="boksModalLabel">Boks Dersi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="/BoksKlübü/assets/BoksPhoto.jpg" class="img-fluid mb-3">
+                <p><strong>Eğitmen:</strong> John Doe (Profesyonel Boksör)</p>
+                <p><strong>Süre:</strong> 3 Ay - Haftada 3 Gün</p>
+                <p><strong>Açıklama:</strong> Boks temel teknikleri, savunma stratejileri ve profesyonel ring deneyimi kazandıran eğlenceli bir programdır.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Kickboks Modal -->
+<div class="modal fade" id="kickboksModal" tabindex="-1" aria-labelledby="kickboksModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="kickboksModalLabel">Kickboks Dersi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="/BoksKlübü/assets/kickBoksPhoto.jpg" class="img-fluid mb-3">
+                <p><strong>Eğitmen:</strong> Alex Smith (Kickboks Şampiyonu)</p>
+                <p><strong>Süre:</strong> 4 Ay - Haftada 2 Gün</p>
+                <p><strong>Açıklama:</strong> Hızlı refleksler geliştirme, güçlü tekmeler ve dövüş esnekliği kazandıran özel bir programdır.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MMA Modal -->
+<div class="modal fade" id="mmaModal" tabindex="-1" aria-labelledby="mmaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mmaModalLabel">MMA Dersi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="/BoksKlübü/assets/Mmaphoto.jpg" class="img-fluid mb-3">
+                <p><strong>Eğitmen:</strong> Michael Johnson (MMA Dövüşçüsü)</p>
+                <p><strong>Süre:</strong> 5 Ay - Haftada 4 Gün</p>
+                <p><strong>Açıklama:</strong> MMA'de üstünlük sağlamak için boks, jiu-jitsu ve güreş tekniklerini birleştiren yoğun bir eğitim programıdır.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- İletişim Bölümü -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="p-4 bg-light rounded shadow-sm" id="iletisim">
+                <div class="row">
+                    <!-- Sol Taraf: İletişim Bilgileri -->
+                    <div class="col-md-6">
+                        <h2>İletişim Bilgileri</h2>
+                        <p><i class="bi bi-geo-alt-fill"></i> <strong>Adres:</strong> İstanbul, Türkiye</p>
+                        <p><i class="bi bi-telephone-fill"></i> <strong>Telefon:</strong> +90 555 123 45 67</p>
+                        <p><i class="bi bi-envelope-fill"></i> <strong>E-posta:</strong> info@infernofightacademy.com</p>
+                    </div>
+
+                    <!-- Sağ Taraf: İletişim Formu -->
+                    <div class="col-md-6">
+                        <h2>Bize Ulaşın</h2>
+                        <form>
+                            <div class="mb-3">
+                                <label for="isim" class="form-label">Adınız</label>
+                                <input type="text" class="form-control" id="isim">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-Posta</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="mesaj" class="form-label">Mesajınız</label>
+                                <textarea class="form-control" id="mesaj" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-danger">Gönder</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer Bölümü -->
+<footer class="bg-dark text-light py-4">
+    <div class="container">
+        <div class="row">
+        <div class="text-center mt-3">
+            <p class="mb-0">&copy; 2025 Inferno Fight Academy | Tüm Hakları Saklıdır.</p>
+        </div>
+    </div>
+</footer>
+
+    
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
+    
+            let isim = document.getElementById("isim").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let mesaj = document.getElementById("mesaj").value.trim();
+    
+            // Form doğrulama (Boş alan var mı kontrol et)
+            if (isim === "" || email === "" || mesaj === "") {
+                alert("Lütfen tüm alanları doldurun!");
+                return;
+            }
+    
+            // E-posta formatı kontrolü
+            let emailDeseni = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailDeseni.test(email)) {
+                alert("Lütfen geçerli bir e-posta adresi girin!");
+                return;
+            }
+    
+            // Formun gönderildiğini simüle et (console'a yaz)
+            console.log("İsim:", isim);
+            console.log("E-posta:", email);
+            console.log("Mesaj:", mesaj);
+    
+            // Başarı mesajı ekle
+            let basariMesaji = document.createElement("div");
+            basariMesaji.className = "alert alert-success mt-3";
+            basariMesaji.textContent = "Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapılacaktır.";
+            
+            // Formun altına ekleyelim
+            let form = document.querySelector("form");
+            form.appendChild(basariMesaji);
+    
+            // Formu temizle
+            form.reset();
+    
+            // Başarı mesajını 5 saniye sonra kaldır
+            setTimeout(() => {
+                basariMesaji.remove();
+            }, 5000);
+        });
+    });
+    </script>
+    
+<!--Sepet işlemi için script-->
+<script>
+let cartCount = 0;
+let cartItems = [];
+
+function addToCart(dersAdi, fiyat) {
+    cartCount++;
+    cartItems.push({ ders: dersAdi, fiyat: fiyat });
+
+    // Sepet sayısını güncelle
+    document.getElementById("cart-count").textContent = cartCount;
+}
+
+function showCart() {
+    if (cartItems.length === 0) {
+        alert("Sepetiniz boş!");
+        return;
+    }
+
+    let cartContent = "Sepetinizdeki Ürünler:\n";
+    cartItems.forEach((item, index) => {
+        cartContent += `${index + 1}. ${item.ders} - ${item.fiyat}\n`;
+    });
+
+    alert(cartContent);
+}
+
+
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

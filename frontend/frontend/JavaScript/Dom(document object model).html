@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+   <style>
+
+    #renkKutusu{
+        width: 100px;
+        height: 100px;
+        background-color: blueviolet;
+    }
+   </style>
+
+
+</head>
+<body>
+    
+<div id="renkKutusu"></div>
+
+<script>
+//div içinde oluşturduğum kutuyu seçiyorum işlem yapacağım
+//const kutu= document.getElementById("renkkutusu");
+
+const kutu = document.querySelector("#renkKutusu");
+kutu.onmouseover = () => (kutu.style.backgroundColor = "red"); //onmouseover mouse üzerine geldiğinde.
+
+kutu.addEventListener('mouseout', () => {   //mouseyi çektiğinde oluşacak renk
+kutu.style.backgroundColor =" purple";
+});
+
+</script>
+
+
+
+<button onclick="arkaPlanDegistir()">renk değiştir</button>
+<script>
+    function arkaPlanDegistir(){
+        document.body.style.backgroundColor = "blue";
+    }
+</script>
+
+<!--rastgele renk değiştirsin örneği-->
+
+<button onclick="arkaPlanDegistir()">Rastgele Renk Değişsin</button>
+
+<script>
+    function arkaPlanDegistir(){
+        const red = Math.floor(Math.random() * 256);
+        const green = Math.floor(Math.random() * 256);
+        const blue = Math.floor(Math.random() * 256);
+        const rastGeleRenk = `rgb(${red},${green},${blue})`;
+        
+        document.body.style.backgroundColor = rastGeleRenk;
+    }
+
+
+</script>
+
+
+
+
+</body>
+</html>

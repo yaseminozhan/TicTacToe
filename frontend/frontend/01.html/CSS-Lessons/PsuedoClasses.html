@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    /*psuedo classes 
+    bir elemanı belirli bir durumunda yapılması gereken düzenlemeleri belirler 
+    belirli bir durumunu bölümünü kullanmak icin iki nokta üst üste kullanırız :*/
+  
+    /*PSUDEO-ELEMENTS
+    BİR ELEMANIN BELİRLİ BİR PARÇASINI BİÇİMLENDİRMEK İÇİN KULLANILIR.
+    BELİRLİ BİR DURUMUNU BÖLÜMÜNÜ KULLANMAK İCİN İKİ NOKTA İKİ NOKTA ÜST ÜSTE KULLANILIR ::*/
+    
+    div{
+        border: 3px solid black;
+        width: 100px;
+        height: 100px;
+    }
+
+    div:hover{  /*mause ile üzerine gelince işlem yapacak mausu üzerinden çekince gider.*/
+        background-color: brown;
+        height: 200px;
+        width: 200px;
+    }
+/*son çocuğuna uygulanan işlem*/
+    p:last-child{
+        font-size: 50px;
+    }
+  /*birinci çocuğuna uygulanan işlem*/
+    p:first-child{
+        color: blueviolet;
+    }
+
+    /*mesela direk sayı belirtmek istiyoruz 5. çocuğunu almak istiyorum (indist gibi 0 dan başlamıyor direk 1 den başlar.)*/
+
+    p:nth-child(5){
+        background-color: darksalmon;
+    }
+
+    /*bir linkin rengini ziyaret edildiğini belirtirken rengini değiştir. */
+    a:visited{
+        color: pink;
+    }
+
+    /*p nin ilk harfini büyük yap.*/
+    p::first-letter{
+        background-color: red;
+    }
+
+    /*p nin ilk satırına uygula*/
+    p::first-line{
+        font-size: 55px;
+        color: rgb(10, 55, 94);
+    }
+
+    /*herhangi bir şeyi mouse ile seçtiğin zaman uygulanacak işlem*/
+    ::selection{
+background-color: darkmagenta;
+    }
+
+    /*listelerdee maddelerin rengi*/
+    ::marker{
+        color: rgb(151, 238, 64);
+    }
+/*bütün p lerin sonuna....*/
+    p::after{
+
+        content: "merhaba";
+    }
+
+    /*bütün p lerin başına*/
+    p::before{
+        content: "selam";
+    }
+
+    p::before{
+        content: url(/Assets/Ekran\ Alıntısı.PNG);
+    }
+
+
+    </style>
+</head>
+<body>
+    <div>
+       
+       <p>merhaba</p>
+   
+    </div>
+
+<ul>
+    <li>Lorem ipsum dolor sit amet.</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla minima maxime eos dolores illum quibusdam modi unde placeat consectetur dicta, soluta ad aliquam aliquid quia accusamus amet, laboriosam sunt perspiciatis.
+</ul>
+
+    <div>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        <p>7</p>
+        <p>8</p>
+        <p>9</p>
+        <p>10</p>
+        <p>11</p>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
+    <a href="EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCECMYJxjqAjIPCAMQLhgnGK8BGMcBGOoCMgkIBBAjGCcY6gIyDwgFEC4YJxjHARjqAhjRAzIJCAYQIxgnGOoCMgkIBxAjGCcY6gLSAQ02MDYwMzAxNjZqMGo3qAIIsAIB8QWeAGWq3uGEL_EFngBlqt7hhC8">hava durumu</a>
+
+</body>
+</html>

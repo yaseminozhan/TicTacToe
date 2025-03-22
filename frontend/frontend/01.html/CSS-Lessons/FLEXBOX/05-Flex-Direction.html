@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--EKSEN ÜZERİNDE DEĞİŞİKLİK YAPAR
+    flex-direction, Flexbox içindeki öğelerin hangi yönde dizileceğini belirler.
+
+Nasıl Çalışır?
+display: flex; kullanıldığında, öğeler varsayılan olarak yatay (row) olarak sıralanır. Ancak flex-direction ile bu yönü değiştirebiliriz.-->
+
+<!-- Kısaca:
+📌 flex-direction, öğelerin yatay mı dikey mi dizileceğini belirler.
+📌 Ters sıralama yapmak için -reverse eklenir.
+📌 Responsive tasarımlarda çok kullanışlıdır! 🚀 -->
+
+    <style>
+         .Container{
+            display: flex;
+            flex-direction: row; /*öğeler soldan sağa dizilir.*/
+            flex-direction: row-reverse;/*öğeler sağdan sola ters dizlir.*/
+            flex-direction: column;/*öğeleri yukarıdan aşağıya (alt alta dizilir.)*/
+            flex-direction: column-reverse; /*öğeleri aşağıdan yukarıya ters dizilir.*/
+            
+         }
+         .kutu{
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    margin: 5px;
+    background-color: darkslateblue;
+}
+</style>
+</head>
+<body>
+    <div class="Container">
+        <div class="kutu" style="background-color: brown;"></div>
+        <div class="kutu" style="background-color: blue;"></div>
+        <div class="kutu" style="background-color: chocolate;"></div>
+    </div>
+</body>
+</html>

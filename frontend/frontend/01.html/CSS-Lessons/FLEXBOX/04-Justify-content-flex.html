@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--justift-content yatay hizalama
+    Kısaca:
+🟡 justify-content öğeleri yatayda hizalar.
+🟢 Boşluk yönetimi için kullanılır.
+🔵 Responsive tasarımlarda güzell! 🚀-->
+    <style>
+        .Container{
+            display: flex; /*artık esnek nereye çekersek oraya gidecek. bu özellikle aktif ediyoruz.*/
+            justify-content: flex-start; /*sola hizalar*/
+            justify-content: end; /*end ise sağa hialar*/
+            justify-content: center;/*ortalar.*/
+            justify-content: space-between; /*ilk ve son öğe kenarlarda diğerleri ise eşit aralıkta.*/
+            justify-content: space-around;/*öğeler etrafında ve kenarlara eşit boşluklar bırakır */
+            justify-content: space-evenly; /*tüm öğeler arasındaki boşluk tamamen eşit olur*/
+
+        }
+        .kutu{
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    margin: 5px;
+    background-color: darkslateblue;
+}
+    </style>
+</head>
+<body>
+    <div class="Container" >
+        <div class="kutu"></div>
+        <div class="kutu"></div>
+        <div class="kutu"></div>
+    </div>
+</body>
+</html>

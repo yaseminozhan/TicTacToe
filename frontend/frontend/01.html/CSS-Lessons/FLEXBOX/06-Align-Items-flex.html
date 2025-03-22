@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- align-items, Flexbox içindeki öğelerin dikey eksende nasıl hizalanacağını belirler. (Eğer flex-direction: column; ise yatay eksende hizalar.)
+
+Nasıl Çalışır?
+display: flex; kullandığında, öğeler varsayılan olarak dikey eksende (cross-axis) hizalanmaz.
+align-items ile üst, alt, orta veya esnek hizalama yapabiliriz. ,
+Kısaca:
+✅ Dikey hizalamayı kontrol eder.
+✅ Öğeleri üst, alt, orta veya esnek hizalayabiliriz.
+✅ Responsive tasarımlarda mükemmel! 🚀-->
+    <style>
+        .Container{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start; /*üste hizalar*/
+            align-items: flex-end; /*altta hizalar*/
+            align-items:center ;/*ortalar*/
+            /*align-items: stretch; /*öğeler, kapsayıcıya () kadar esner*/
+           /* align-items: baseline;/*metin satırına göre hizalar.*/
+        }
+        .kutu{
+            width: 50px;
+            height: 50px;
+            padding: 10px;
+            margin: 5px;
+            background-color: darkslateblue;
+        }
+        </style>
+</head>
+<body>
+</head>
+<body>
+    <div class="Container">
+        <div class="kutu" style="background-color: brown;"></div>
+        <div class="kutu" style="background-color: blue;"></div>
+        <div class="kutu" style="background-color: chocolate;"></div>
+    </div>
+</body>
+</html>

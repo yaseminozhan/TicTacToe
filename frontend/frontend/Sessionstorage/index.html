@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Kullanıcı bilgileri</h2>
+    <form id="kullaniciForm">
+<label for="ad">Adınız :</label>
+<input type="text" id="ad" placeholder="adınızı giriniz">
+<br>
+<br>
+<label for="yas">yaşınız :</label>
+<input type="number" id="yas" placeholder="yaşınızı giriniz">
+<br>
+<br>
+<button type="submit">Kaydet</button>
+<button type="button" id="temizle"> Temizle </button>
+
+    </form>
+<h3>Kaydedilen Bilgiler</h3>
+<p>Ad : <span id="kayitliAd"></span></p>
+<p>Yas : <span id="kayitliYas"></span></p>
+<script>
+document.addEventListener("DOMContentLoaded" , function(){
+    //sayfa açıldığında kayıtlı veri varsa yükleyecek
+    if(sessionStorage.getItem("ad")){
+document.getElementById("kayitliAd").textContent = sessionStorage.getItem("ad")
+    }
+    if(sessionStorage.getItem("yas")){
+        document.getElementById("kayitliYas").textContent = sessionStorage.getItem("yas")
+    }
+    document.getElementById("kullaniciForm").addEventListener("submit" , function(event){
+        event.preventDefault(); // sayfanın yenilenmesini engeller.
+        let ad= document.getElementById("ad").value;
+        let yas= document.getElementById("yas").value;
+        //verileri sessionstoarage içine kaydediyoruz.
+        sessionStorage.setItem("adınız",ad);
+        sessionStorage.setItem("yaşınız",yas);
+        //kaydedilen verileri ekrana yazdır
+        document.getElementById("kayitliAd").textContent=ad;
+        document.getElementById("kayitliYas").textContent=yas;
+    });
+    document.getElementById("temizle").addEventListener("click",function(){
+        sessionStorage.clear();
+        document.getElementById("kayitliAd").textContent="";
+        document.getElementById("kayitliYas").textContent="";
+    });
+    
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

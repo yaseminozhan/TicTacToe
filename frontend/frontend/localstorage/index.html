@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Sepet Uygulaması</h1>
+      <input type="text" id="urunAdi" placeholder="Ürün Gİriniz" />
+      <input type="number" id="urunFiyati" placeholder="Fiyat Gİriniz" />
+      <button id="sepetEkle">Sepete Ekle</button>
+      <button id="sepetiTemizle">Sepeti Temizle</button>
+
+      <h2>Sepetiniz</h2>
+      <ul id="sepetItems"></ul>
+      <h3 id="toplamFiyat">Toplam : 0 $</h3>
+    </div>
+
+    <script>
+      window.onload = function () {
+        sepetiGuncelle();
+      };
+
+      document.getElementById('sepetEkle').addEventListener('click',function(){
+        const urunAdi = document.getElementById('urunAdi').value;
+        const urunFiyati = parseFloat(document.getElementById('urunFiyati').value);
+
+        if(urunAdi && !isNaN(urunFiyati)){
+            const sepet = JSON.parse(localStorage.getItem('sepet'))||[];
+
+            sepet.push({name: urunAdi,price : urunFiyati});
+            localStorage.setItem('sepet',JSON.stringify(sepet));
+
+            sepetiGuncelle();
+
+            document.getElementById('urunAdi').value='';
+            document.getElementById('urunFiyati').value='';
+        }
+      });
+
+      document.getElementById('sepetiTemizle').addEventListener('click',function(){
+        localStorage.removeItem('sepet');
+        sepetiGuncelle();
+      })
+
+
+      function sepetiGuncelle() {
+        const sepetItems = JSON.parse(localStorage.getItem("sepet")) || [];
+        const sepetListesi = document.getElementById("sepetItems");
+        sepetListesi.innerHTML = "";
+
+        let toplam = 0;
+
+        sepetItems.forEach((item) => {
+          const li = document.createElement("li");
+          li.className = "cart-item";
+          li.textContent = `${item.name} ${item.price}`;
+          toplam += item.price;
+
+          sepetListesi.appendChild(li);
+        });
+
+        document.getElementById('toplamFiyat').textContent = `Toplam : ${toplam}`
+      }
+    </script>
+  </body>
+</html>

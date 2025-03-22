@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "title": "Bardak 1",
+        "price": "10 $",
+        "description": "Bu bardak harika!",
+        "image": "https://picsum.photos/200/300"
+    },
+    {
+        "id": 2,
+        "title": "Bardak 2",
+        "price": "12 $",
+        "description": "Bu bardak da güzel!",
+        "image": "https://picsum.photos/200/300"
+    },
+    {
+        "id": 3,
+        "title": "Bardak 3",
+        "price": "15 $",
+        "description": "Bu bardak çok kullanışlı!",
+        "image": "https://picsum.photos/200/300"
+    },
+    {
+        "id": 4,
+        "title": "Bardak 4",
+        "price": "10 $",
+        "description": "Bu bardak harika!",
+        "image": "https://picsum.photos/200/300"
+    },
+    {
+        "id": 5,
+        "title": "Bardak 5",
+        "price": "12 $",
+        "description": "Bu bardak da güzel!",
+        "image": "https://picsum.photos/200/300"
+    },
+    {
+        "id": 6,
+        "title": "Bardak 6",
+        "price": "15 $",
+        "description": "Bu bardak çok kullanışlı!",
+        "image": "https://picsum.photos/200/300"
+    }
+]

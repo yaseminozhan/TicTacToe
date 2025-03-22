@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <!-- 10/03/2025  B.H uygulamalar-->
+
+    <!-- Kullanıcının Girdiği Sayıyı Çift mi Tek mi Olduğunu Kontrol Etme 
+ inputa sayı girilicek button click olduğundan bu sayı tek se tek çift ise çift yazıcak bir p tagıiçinde   -->
+
+    <input type="number" id="oddEventChecker" placeholder="Bir sayı giriniz." />
+    <button onclick="checkNumber()">Kontrol Et</button>
+    <p id="result"></p>
+
+    <script>
+      function checkNumber() {
+        let number = document.getElementById("oddEventChecker").value;
+        let result = number % 2 === 0 ? "çift" : "tek";
+
+        document.getElementById("result").innerText =
+          "Girdiğiniz sayı: " + result;
+
+        /**
+         * !  inner text yazdığımız tagın altına yazı yazmamızı sağlar.
+         *  todo:
+         * 
+         */
+      }
+    </script>
+
+    <!--  
+text box içerisine girilen adı buttona tıklayınca p tagi içerisinde gösteriniz 
+ -->
+
+    <input type="Name" id="nameInput" placeholder="isminizi giriniz." />
+    <button onclick="checkName()">kontrol et</button>
+    <p id="result"></p>
+
+    <script>
+      function checkName() {
+        let name = document.getElementById("nameInput").value;
+        document.getElementById("result").innerText = "Girdiğiniz ad: " + name;
+      }
+    </script>
+
+    <!--h1 tagi içinde tıklanan klavyeden harfi gösteriiniz-->
+
+    <input
+      type="text"
+      id="charInput"
+      placeholder="Bir harf giriniz"
+      maxlength="1"
+    />
+    <h1 id="result"></h1>
+
+    <script>
+      document
+        .getElementById("charInput")
+        .addEventListener("keydown", function (event) {
+          document.getElementById("result").innerText =
+            "Girdiğiniz harf: " + event.key;
+        });
+
+      /**
+       * ! keydown: butona tıklamaya gerek olmadan harf yazılınca otomatik çalışır
+       * ! gerçek zamanlı olarak giriş  gösterilir.
+       * ! <input> kutusu oluşturuldu.
+       *  ! maxlength="1" kullanılarak tek bir harf girilmesi sağlandı.
+       *  !keydown olayı eklendi → Kullanıcı klavyeye bastığında çalışacak.
+       *! event.key → Basılan tuşun değerini alır.
+       *! Sonuç h1 etiketi içinde anlık olarak gösterilir.
+       */
+    </script>
+
+    <!--
+not: dizinin elemaları olsin bu elemanları listenin icine atmak isteersem şu şekilde işlem yaparız
+-->
+
+    <ul id="liste"></ul>
+    <script>
+      let meyveler = [
+        "muz",
+        "kavun",
+        "kivi",
+        "çilek",
+        "domates",
+        "karpuz",
+        "kiraz",
+      ];
+      let liste = document.getElementById("liste");
+
+      meyveler.forEach((meyve) => {
+        let li = document.createElement("li");
+        li.textContent = meyve;
+        liste.appendChild(li);
+      });
+    </script>
+
+    <!--
+galeri yapıyoruz 20 tane urlden resim alınıyor bunu div içerisinde img ekleyerek gösteriyoruz
+-->
+
+    <h1>Resim Galerim</h1>
+    <div class="galeri" id="resimGalerisi"></div>
+
+    <script>
+      let resimler = [
+        "https://picsum.photos/200/150?random=1",
+        "https://picsum.photos/200/150?random=2",
+        "https://picsum.photos/200/150?random=3",
+        "https://picsum.photos/200/150?random=4",
+        "https://picsum.photos/200/150?random=5",
+        "https://picsum.photos/200/150?random=6",
+        "https://picsum.photos/200/150?random=7",
+        "https://picsum.photos/200/150?random=8",
+        "https://picsum.photos/200/150?random=9",
+        "https://picsum.photos/200/150?random=10",
+        "https://picsum.photos/200/150?random=11",
+        "https://picsum.photos/200/150?random=12",
+        "https://picsum.photos/200/150?random=13",
+        "https://picsum.photos/200/150?random=14",
+        "https://picsum.photos/200/150?random=15",
+        "https://picsum.photos/200/150?random=16",
+        "https://picsum.photos/200/150?random=17",
+        "https://picsum.photos/200/150?random=18",
+        "https://picsum.photos/200/150?random=19",
+        "https://picsum.photos/200/150?random=20",
+      ];
+
+      let resimGalerisi = document.getElementById("resimGalerisi");
+
+      resimler.forEach((resim) => {
+        let img = document.createElement("img"); // <img> etiketi oluştur
+        img.src = resim; // Resmin kaynağını belirle
+        img.alt = "Galeri Resmi"; // Alternatif metin ekle
+        img.style.margin = "5px"; // Görseller arasına boşluk koy
+        resimGalerisi.appendChild(img); // <img> etiketi div'e ekleniyor
+      });
+    </script>
+
+    <!--
+tıklanılan yerin koordiantlarını gösteirriinz
+-->
+
+    <p id="koordinatlar">hiçbir yere tıklanmadı :</p>
+    <script>
+      document.addEventListener("click", function (event) {
+        document.getElementById(
+          "koordinatlar"
+        ).innerText = `X: ${event.clientX}, Y: ${event.clientY}`;
+      });
+
+      /**
+       * *document.addEventListener("click", function(event) {
+       ** Sayfada herhangi bir yere tıklanırsa, çalışacak bir fonksiyon tanımlıyoruz.event, tıklama olayına ait bilgileri içerir.
+       * ! event.clientX : Tıklanan yerin YATAY (X) koordinatını alır.Sayfanın sol üst köşesi (0,0) noktasıdır.Örneğin: Eğer fareyi sayfanın 100 piksel sağında bir yere tıklarsan, event.clientX = 100 olur.
+       * ! event.clientY : Tıklanan yerin DİKEY (Y) koordinatını alır.Sayfanın en üstü Y=0, aşağıya indikçe değer artar.Örneğin: Sayfanın 200 piksel aşağısına tıklarsan, event.clientY = 200 olur.
+       * *document.getElementById("koordinatlar") → <p> etiketini seçiyoruz..innerText = ... → <p> içeriğini güncelliyoruz.X: ${event.clientX}, Y: ${event.clientY} → X ve Y koordinatlarını yazdırıyoruz.
+       * ? yani bu clientx ve clienty hazır bulunan proplar. onları kullanarak getirebilirsin.
+       */
+    </script>
+
+    <!--
+text tipinde bir inputum var bu input mail için kullanılıyor @ işaretini zorunlu kılacaız. @ işareti var mı yok mu kontrolunu yapalım 
+-->
+
+    <input type="text" id="emailInput" placeholder="E-posta giriniz" />
+    <button onclick="checkEmail()">Gönder</button>
+    <p id="sonuc"></p>
+
+    <script>
+      function checkEmail() {
+        let email = document.getElementById("emailInput").value; // Kullanıcının girdiği metni al
+        let sonuc = email.includes("@") ? "Var" : "Yok"; // '@' var mı kontrol et
+        document.getElementById("sonuc").innerText = `@ işareti: ${sonuc}`; // Sonucu yazdır
+      }
+    </script>
+
+    <!--
+bir liste oluşturunuz burada liste elemanlarına tıklayınca random renk değişssin
+-->
+
+    <ul id="renkListesi">
+      <li>elma</li>
+      <li>armut</li>
+      <li>kavun</li>
+      <li>karpuz</li>
+      <li>vişne</li>
+    </ul>
+
+    <script>
+      function rasgeleRenk() {
+        let rasgeleKod = Math.floor(Math.random() * 16777215)
+          .toString(16)
+          .padStart(6, "0");
+        return "#" + rasgeleKod;
+      }
+
+      document.querySelectorAll("#renkListesi li").forEach((oge) => {
+        oge.addEventListener("click", function () {
+          this.style.color = rasgeleRenk(); // Renk değiştirme işlemi
+        });
+      });
+    </script>
+
+    <!-- 11/03/2025  örneker-->
+
+    <!-- dinamik sayaç oluşturma (arttırma ve azaltma olsun)-->
+
+    <p id="sayac">0</p>
+    <button onclick="arttır()">sayaç artıyor</button>
+    <button onclick="azalt()">sayaç azalıyor</button>
+
+    <script>
+      let sayac = 0;
+      function arttır() {
+        sayac++;
+        document.getElementById("sayac").innerText = sayac; //inner text ile h1 etiketine yazıyor.
+      }
+      function azalt() {
+        sayac--;
+        document.getElementById("sayac").innerText = sayac;
+      }
+    </script>
+
+    <!-- kullanıcının seçtiği rengi arka plan rengi yapınız.-->
+
+    <input type="color" id="renkSecici" />
+
+    <script>
+      document
+        .getElementById("renkSecici")
+        .addEventListener("input", function () {
+          document.body.style.backgroundColor = this.value;
+        });
+    </script>
+
+    <!-- 12/03/2025 dom örnekleri-->
+    <!--bir kullanıcı tablom var bu tablo boostraptan alınacak inputa yazdığımız kişi tablomda varsa sadece onu gösterecek -->
+
+    <input
+      type="text"
+      id="searchInput"
+      class="form-control"
+      placeholder="Kullanıcı adı giriniz"
+    />
+
+    <div class="container mt-3">
+      <h2>user Table</h2>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody id="kullaniciTablosu">
+          <tr>
+            <td>Yasemin</td>
+            <td>özhan</td>
+            <td>yasemin@example.com</td>
+          </tr>
+          <tr>
+            <td>robjin</td>
+            <td>vefa</td>
+            <td>robjin@example.com</td>
+          </tr>
+          <tr>
+            <td>zeynep</td>
+            <td>kaska</td>
+            <td>zeynp@example.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      document
+        .getElementById("searcInput")
+        .addEventListener("input", function () {
+          let filtrele = this.value.toLowerCase();
+          document.querySelectorAll("#kullaniciTablosu").forEach((row) => {
+            row.stye.display = row.innerText.toLowerCase().includes(filtrele)
+              ? ""
+              : "none";
+          });
+        });
+    </script>
+
+    <!--bir tane butonumuz olacak ve resimlerimiz olacak butona basıldığında resimlerimiz değişecek-->
+    <h2>Butona Tıklayınca Resim Değişsin</h2>
+    <button onclick="siradakiResimiGoster()">Sonraki Resim</button>
+    <br /><br />
+    <img id="degisenResim" src="https://picsum.photos/300/200?random=1" />
+
+    <script>
+      let resimSayisi = 25;
+      let mevcutIndex = 1;
+
+      function siradakiResimiGoster() {
+        mevcutIndex++;
+        if (mevcutIndex > resimGalerisi) mevcutIndex = 1;
+        document.getElementById(
+          "degisenResim"
+        ).src = `https://picsum.photos/300/200?random=${mevcutIndex}`;
+      }
+    </script>
+
+    <!-- Kullanıcı butona tıkladığında rastgele bir hava durumu gösterir ve arka plan rengini değiştirir.-->
+
+    <h2>Bugünkü Hava Durumu</h2>
+    <button onclick="havaDurumuGuncelle()">Güncelle</button>
+    <p id="havaDurumu" style="font-size: 25px"></p>
+
+    <script>
+      function havaDurumuGuncelle() {
+        let havaDurumlari = [
+          { durum: "Güneşli ☀️", renk: "#FFD700" },
+          { durum: "Yağmurlu 🌧️", renk: "#4682B4" },
+          { durum: "Karlı ❄️", renk: "#ADD8E6" },
+          { durum: "Bulutlu ☁️", renk: "#B0C4DE" },
+          { durum: "Fırtınalı ⛈️", renk: "#708090" },
+          { durum: "Sisli 🌫️", renk: "#A9A9A9" },
+        ];
+        let rasgeleDurum =
+          havaDurumlari[Math.floor(Math.random() * havaDurumlari.length)];
+        /**
+         * !bu kodda kullanıcı kodları değiştirebiliryor.
+         * !xss (cross- site scripting) güvenlik açığı
+         *  *document.getElementById("havaDurumu").innerHTML=`<strong>${rasgeleDurum.durum}</strong>`;
+         * ?bu kod yerine ne kullanabiliriz.
+         */
+
+        const havaDurumuElmnti = document.getElementById("havaDurumu");
+        havaDurumuElmnti.textContent = rasgeleDurum;
+        const strong = document.createElement("strong");
+        strong.textContent = rasgeleDurum;
+        havaDurumuElmnti.appendChild(strong);
+
+        document.body.style.backgroundColor = rasgeleDurum.renk;
+      }
+    </script>
+
+    <!-- TODO Listesi yapılıcak 
+           kullanıcı kendisine görevler listesi ekleyebilir aynı zamanda bunu silebilir olmalı  -->
+
+    <h2>TODO list</h2>
+    <input type="text" id="gorevInput" placeholder="yeni görev giriniz" />
+    <button onclick="gorevEkle()">ekle</button>
+    <ul id="gorevListesi"></ul>
+
+    <script>
+      function gorevEkle() {
+        let giris = document.getElementById("gorevInput");
+        let yeniGorev = giris.value.trim();
+        if (yeniGorev === "") return;
+        let liste = document.getElementById("gorevListesi");
+        let li = document.createElement("li");
+        li.innerHTML = `${yeniGorev} <button onclick="this.parentNode.remove()">sil</button>`; //silme butonu
+        liste.appendChild(li);
+        giris.value = "";
+      }
+    </script>
+
+    <!--arttır ve azal butonoları olsun bir adet kutum var bu kutuyu büyülsün veya küçültsün div ile button oluşturun -->
+    <head>
+      <style>
+        #kutu {
+          width: 100px;
+          height: 100px;
+          background-color: rgb(100, 149, 237);
+        }
+      </style>
+    </head>
+
+    <body>
+      
+      <div id="kutu"></div>
+      <br>
+      <button onclick="boyutuArttir()">büyüt</button>
+      <button onclick="boyutuAzalt()">küçült</button>
+
+      <script>
+
+        function boyutuArttir(){
+          
+        let kutu= document.getElementById("kutu");
+        let genislik = kutu.offsetWidth; //offsetWidth, bir HTML elementinin görsel olarak kapladığı toplam genişliği (px) verir.
+       // width + padding + border dahil edilir.
+        kutu.style.width=(genislik+20)+"px";
+        kutu.style.height=(genislik+20)+"px";
+        }
+        function boyutuAzalt(){
+          
+          let kutu= document.getElementById("kutu");
+          let genislik = kutu.offsetWidth; 
+          kutu.style.width=(genislik-20)+"px";
+          kutu.style.height=(genislik-20)+"px";
+          }
+
+
+       
+      </script>
+    </body>
+  </body>
+</html>

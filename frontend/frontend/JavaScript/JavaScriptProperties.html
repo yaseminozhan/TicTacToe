@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--06/03/2025  JAVASCRİPT GİRİŞ-->
+<!--render etmek : parçaları yavaş yavaş çalıştırması yukarıdan aşağıya doğru.-->
+
+
+
+
+
+
+</head>
+<body>
+
+    <button onclick="Calis()"> <!--butona tıklandığı zaman çalış metodunun kodlarının çalışmasını istiyorum event gibi düşünebiliriz.-->
+ </button>
+
+<!--kodun en sona yazılması daha çok tercih edilir bütün html ler çalışır en son javascript çalışacağı için.-->
+<!-- <script>              
+    javascript kodlarını buraya yaz
+</script> -->
+   
+
+
+<script>
+    //var,let,constent(sabit anlamına gelir)  diyerek değişkenlerimizi tanımlayabiliriz.
+    //sağdan sola atama.
+    var x=5; //bunun bir değişken olduğunu anladı.
+    let y=7;
+    var kelime="Merhaba"; //string olduğunu anladı
+
+    let cumle="bugün hava güzel"; 
+    const pi=3.14; //sabit.
+
+    //veri tipleri: array, string,number, undefined(tanımlanmamış),null(null burada onun olmadığını söylüyor.)
+
+    //console.log diyerek live penceresini açıp ctrl+shit+ı yaparak consola ulaşabiliriz buradaki değerleri ve uyarıları oradan görebiliriz.
+
+    console.log("MERHABA");
+    console.log("merhaba"+ pi); //+ ile concatanate(birleştirme) işlemi yapıyor.
+    console.log(kelime);
+    console.log(x);
+    console.log(x+y); //toplama da yapabiliriz.
+    // - çıkartma, + toplama ve birleştirme , % mod , * çarpma , / bölme //
+
+    console.log(x+y+kelime); //önce int olduğu için toplayıp sonra kelimeyi yazarr amaa
+    console.log(kelime+x+y); //önce string olursa da concatanate yapar yani birleştirir.
+    console.log(x/y); //böldük
+
+    //ekrana bir şey yazdırmak için: 
+    alert("Ank-20" + x);
+    
+
+    document.write("Merhaba"); //bunu direk live veya previevde gösterir.
+     let sayi=8;
+     let gun="perşembe";
+     let tatilgunu ="tatil günü";
+
+     document.write(gun+tatilgunu+ "<br>");
+     document.write(8+"5")+"<br>";
+     document.write(8+"5"+7*("5")+"<br>"); 
+
+     //KOŞULLAR
+     //İF  
+     let s1=47;
+     let s2=97;
+
+     if(s1==s2)
+     document.write("eşittir");
+    else 
+    document.write("değildir." +"<br>");
+
+    //==, ===, != , !==  farklarına bakalım
+
+    //== ve != veri türü olmadan kontrol yapar, daha esnktir,  ama === ve !== veri türünü dahil ederek sıkı bir kontrol yapar.
+
+    //switch-case
+    // switch(x){
+    //     case 1: 
+    //     document.write("1");
+    //     break;
+    //     case 2:
+    //         document.write("2");
+    //         break;
+    //         default
+    //         document.write("diğer");
+    //         break;
+            
+    // }
+
+    let sonuc= x % 2 == 0 ? "çift": "tek";
+    document.write(sonuc);
+
+    let toplam=0;
+    let sayac=1;
+    while(sayac<=10){
+        toplam += sayac;
+        sayac++;
+    }
+    document.write(toplam);
+
+    let result= 0;
+    let counter =0;
+    do{
+        result += counter;
+        counter++;
+    } while (counter <= 10);
+    document.write(result + "<br>");
+
+
+    let result2=0;
+
+    for (let index = 0; index <11 ; index++ )
+    result2  += index 
+        document.write(result2+"<br>");
+
+        //array
+        let sayilar=[1,2,3];
+        //unutma:  indisler 0 dan başlar.
+
+        document.write(sayilar[0]);
+        
+    
+
+
+
+
+</script>
+
+<!--başka dosyayı buraya dahil etmek . -->
+<!-- <script src="dahil etmek istediğimiz dosyaa uzantısı"></script> -->
+
+</body>
+</html>

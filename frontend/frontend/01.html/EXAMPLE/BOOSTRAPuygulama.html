@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<!--06/03/2025 Baran hoca boostrap uygulama-->
+
+<!--ÖRNEK1: 
+Navbarı olan içinde kampanyaların olduğu bir slidebarı olan card yapılarında resim ürün adı açıklaması olan ve en az 3 kategoride bu kart yapılarının olduğu bir template yazılıcak responsiive olucak sayfanın en altında footer olucak -->
+
+<!--çok büyüktü. ayarladık-->
+<style>
+  /* Carousel resim yüksekliğini sınırlıyoruz */
+  .custom-carousel-img {
+    max-height: 400px; /* Maksimum yükseklik */
+    object-fit: cover; /* Resmi kırpmadan sığdırır */
+  }
+</style>
+
+
+
+</head>
+<body>
+ <!--navbar-->
+ <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand">Categories</a>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+<!--select-->
+<select class="form-select" aria-label="Default select example">
+    <option selected>Open this select menu</option>
+    <option value="1">black electro guitar</option>
+    <option value="2">bateri</option>
+    <option value="3">blue electro guitar</option>
+  </select>
+
+  <!-- SLİDER(CAROUSEL)-->
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/01.html/Assets/ESP-LTD-F-10-KIT-Black-Elektro-Gitar_1.jpg" class="img-fluid img-thumbnail w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="/01.html/Assets/cox-cds1-wh-akustik-bateri-seti-z.avif" class="img-fluid img-thumbnail w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="/01.html/Assets/esp-ltd-m-200dx-nt-blue-burst-elektro-gitar-246047367-sw800sh800.webp"  class="img-fluid img-thumbnail w-100">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+
+<!--ürün kategorileri card-->
+
+<div class="container mt-5"> <!--mt-5 margin boşluk ayarı-->
+    <div class="row">
+      <!-- Kart 1 -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/01.html/Assets/cox-cds1-wh-akustik-bateri-seti-z.avif" class="card-img-top">
+          <div class="card-body">
+            <p class="card-text">Bateri çalma, hızın yanı sıra denge ve akıcılık gerektirir. Düzenli olarak metronom ile çalışmalı ve single-stroke, double-stroke, paradidle, double paradidle, üçlemeler, altılamalar gibi el teknikleri, dörtlük ritmin üzerine dörtlük, sekizlik, on altılık kick vuruşları gibi sağ ayak teknikleri (eğer twin pedal tercih edilirse sol ayak için de aynı egzersizler uygulanabilir), hi-hat ile dörtlük, sekizlik, onaltılık saymak gibi sol ayak teknikleri ve tabii ki el-ayak kombinasyonları gibi teknikler üzerinde alıştırma yapılmalıdır.</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Kart 2 -->
+      <div class="col-md-4"> <!--col-md4 grid sistemi: md: medium Yani, bir satırda (row içinde) 3 tane col-md-4 olursa, toplam 4+4+4=12 sütun olur ve tam sıralanır. Kartları yan yana dizer. (Büyük ekranlarda 3 sütun yapar, küçük ekranlarda alt alta gelir.) -->
+        <div class="card">
+          <img src="/01.html/Assets/ESP-LTD-F-10-KIT-Black-Elektro-Gitar_1.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Elektro gitar, sesini manyetikleri aracılığı ile elektrik akımına dönüştüren ve bir amplifikatör ile bu akımdan ses elde edilmesine olanak tanıyan gitar türüdür.
+  
+              Oluşturduğu sinyalin değiştirilebilir olması ve zamanında bir devrim niteliği taşıyan yükseklikte bir sese sahip olması nedeniyle, kullanım alanı çok genişlemiş bir gitar türüdür.</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Kart 3 -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/01.html/Assets/esp-ltd-m-200dx-nt-blue-burst-elektro-gitar-246047367-sw800sh800.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Boş gövdeli
+              Boş gövdeli gitarlar, aynı zamanda kıvrımlı üst yüzeyleri ile Archtop adını da alır, bir yükselticiye gereksinim duymadan, sesin gitardaki boşlukta yankılanarak zengin bir ton çıkarmasıyla çalınan gitarlardır. Her ne kadar bu özelliğe sahip olsalar dahi, bu gitarlar da manyetiklerle kullanılabilmektedir. Üst ve alt ağaç plakaları bir parçadan oyulmuş, yahut ısı ile preslenmiş ağaçlar olabilir. Bu tip gövdelerde keman ailesindeki gibi f delikleri bulunabilir. Bu tarz gövdeyi 1890'da tasarlayan ve dünyaya tanıtan Gibson firmasıdır.Tam olarak 60 hz -250 hz desibel ortaya çıkarabilir.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--yeni  eklenen ürün listesi (8 birim yazı-4 birim resim)-->
+  <div class="container mt-5"> 
+    <h2 class="text-center mb-4 text-danger">🎶Ürünlerimiz🎶</h2>
+
+    <!-- Ürün 1 (Sol Yazı, Sağ Resim) -->
+    <div class="row align-items-center mb-4">
+        <div class="col-md-8">
+            <h3 class="fw-bold text-black">Black Elektro Gitar</h3>
+            <p style="font-family: 'Arial', sans-serif;">Black Elektro Gitar, yüksek performanslı manyetikleri ile güçlü bir ses deneyimi sunar. Metal ve rock müziği için idealdir. Dayanıklı gövde yapısı sayesinde uzun ömürlü kullanım sağlar.</p>
+        </div>
+        <div class="col-md-4">
+            <img src="/01.html/Assets/ESP-LTD-F-10-KIT-Black-Elektro-Gitar_1.jpg" class="img-fluid rounded">
+        </div>
+    </div>
+
+    <!-- Ürün 2 (Sağ Yazı, Sol Resim) -->
+    <div class="row align-items-center mb-4">
+        <div class="col-md-4">
+            <img src="/01.html/Assets/cox-cds1-wh-akustik-bateri-seti-z.avif" class="img-fluid rounded">
+        </div>
+        <div class="col-md-8">
+            <h3 class="fw-bold text-danger">Akustik Bateri Seti</h3>
+            <p style="font-family: 'Courier New', monospace;">Profesyonel ve amatör müzisyenler için tasarlanmış bu akustik bateri seti, dengeli ve güçlü tonlar sunar. Kendi bateri setup'ınızı oluşturmanız için mükemmel bir seçim!</p>
+        </div>
+    </div>
+
+    <!-- Ürün 3 (Sol Yazı, Sağ Resim) -->
+    <div class="row align-items-center mb-4">
+        <div class="col-md-8">
+            <h3 class="fw-bold text-success">Blue Elektro Gitar</h3>
+            <p style="font-family: 'Times New Roman', serif;">Modern tasarımı ve klasik tonları bir araya getiren Blue Elektro Gitar, hem sahne performansları hem de stüdyo kayıtları için mükemmel bir tercihtir.</p>
+        </div>
+        <div class="col-md-4">
+            <img src="/01.html/Assets/esp-ltd-m-200dx-nt-blue-burst-elektro-gitar-246047367-sw800sh800.webp" class="img-fluid rounded">
+        </div>
+    </div>
+
+    <!-- Ürün 4 (Sağ Yazı, Sol Resim) -->
+    <div class="row align-items-center mb-4">
+        <div class="col-md-4">
+            <img src="/01.html/Assets/klasik gitar.webp" class="img-fluid rounded">
+        </div>
+        <div class="col-md-8">
+            <h3 class="fw-bold text-warning">Klasik Gitar</h3>
+            <p style="font-family: 'Verdana', sans-serif;">Klasik müzik severler için harika bir seçim! Yumuşak dokunuşlu klavyesi sayesinde rahat çalım sağlar. Dayanıklı ahşap gövdesi ile uzun ömürlü bir kullanım sunar.</p>
+        </div>
+    </div>
+
+    <!-- Ürün 5 (Sol Yazı, Sağ Resim) -->
+    <div class="row align-items-center mb-4">
+        <div class="col-md-8">
+            <h3 class="fw-bold text-info">Elektro Bas Gitar</h3>
+            <p style="font-family: 'Georgia', serif;">Derin bas tonları ve güçlü manyetikleri ile sahnede fark yaratın! Elektro Bas Gitar, güçlü tonlarıyla her müzik türüne uygun bir enstrümandır.</p>
+        </div>
+        <div class="col-md-4">
+            <img src="/01.html/Assets/schecter-c-4-standard-bas-gitar-charcoal-satin-2c75b2c5d9a783e52848e14428eca4da-192789b0182d4560547d723e950fe123-max-pp.jpg" class="img-fluid rounded">
+        </div>
+    </div>
+
+</div>
+  
+  <!--link-->
+  <a class="icon-link" href="https://www.do-re.com.tr/?gad_source=1&gclid=CjwKCAiAiaC-BhBEEiwAjY99qBR-XcZHtn1n3-qrwVND5JeGk6JA6dvGrbjn8-QWHOBZ2epvlvf1LRoCe_kQAvD_BwE">
+    <svg class="bi" aria-hidden="true"><use xlink:href="#box-seam"></use></svg>
+    buy link
+  </a>
+
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    &copy; 2025-ENTRUMANS 
+</footer>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
