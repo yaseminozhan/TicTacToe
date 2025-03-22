@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <style>
+      body {
+    background-color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+details summary {
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+details[open] summary {
+    background-color: #ffe4e1;
+    color: #b30059;
+}
+
+details ul {
+    list-style: none;
+    padding: 10px 20px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+details ul li::before {
+    content: "🎵 ";
+}
+
+figure {
+    text-align: center;
+    margin: 20px 0;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav li a:hover {
+    color: #b30059;
+}
+
+aside {
+    background-color: #fafafa;
+    padding: 15px;
+    margin-top: 20px;
+    border-left: 4px solid #ccc;
+}
+
+section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+input[type="email"] {
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+button {
+    padding: 8px 12px;
+    background-color: #b30059;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #800040;
+}
+.donut-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🎶MusicBlog   </h1>
+        <p><i>Müziğin Büyülü Dünyası: Ruhun Ritmi ve Zamansız Melodiler</i></p>
+    </header>
+    <details>
+        <summary>📚Müzik Hakkında</summary>
+        <ul>
+            <li>Müzik, duyguların kelimelere ihtiyaç duymadan ifade edilmesidir. Her melodi, insan ruhunun derinliklerinden yükselen bir hikâye anlatır.</li>
+            <li>Tarih boyunca müzik, toplulukları bir araya getiren evrensel bir dil olmuştur. Aşk, isyan, sevinç, hüzün... Hepsi notalarda gizlidir.</li>
+            <li>Farklı kültürlerin tınıları, dünyaya olan bakışımızı zenginleştirir. Hint ragaları, Afrika ritimleri, Latin melodileri… Hepsi müziğin çeşitliliğini yansıtır.</li>
+            <li>Gelişen teknoloji ile müzik artık sadece dinlenmiyor, deneyimleniyor. Sanal konserler ve 8D ses teknolojileri yeni çağın müzik trendlerini belirliyor.</li>
+            <li>Bir şarkı bazen seni geçmişe götürür, bazen de geleceğe hazırlar. Müzik; hem bir zaman makinesi, hem de ruhun en sadık dostudur.</li>
+        </ul>
+    </details>
+    <nav>
+        <ul>
+            <li><a href="https://www.youtube.com/">🎥Videolar</a></li>
+            <li><a href="https://www.spotify.com/">🎧Çalma Listeleri</a></li>
+            <li><a href="https://www.soundcloud.com/">🎤Sanatçılar</a></li>
+            <li><a href="https://www.deezer.com/">📻Podcastler</a></li>
+        </ul>    
+    
+<hr>
+<figure> 
+    <img src="/MusicBlog/assets/MusicBlogPhoto.PNG" > <br>
+    <p>İşte müziğin geleceğini yansıtan etkileyici bir görsel! 🚀🎶 Hologram sanatçılar, artırılmış gerçeklik sahneleri ve 3D ses dalgalarıyla dolu bu dijital sanat eseri, 2025'in müzik dünyasını hayal ediyor.</p>
+    <p><b>takip edin: <a href="https://www.instagram.com/">instagram|</a> <a href="https://x.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoidHIifQ%3D%3D%22%7D">Twitter|</a><a href="https://www.facebook.com/?locale=tr_TR">Facebook</a></b></p>
+</figure>
+<hr>
+<aside>  <!-- ana içerik ile ilgili yan bilgi -->
+   
+<h2>📜GÜNCEL MAKALELER</h2>
+<ul>
+    <ol>
+ <li> Yapay Zekâ Destekli Müzik ÜretimiGelişen yapay zekâ teknolojileri, bestecilere ve sanatçılara yeni ilham kaynakları sunuyor. AI destekli müzik platformları, kişiye özel müzik önerileri sunmanın yanı sıra, sanatçıların müzik üretim süreçlerine doğrudan katkı sağlıyor. Bu sayede, yapay zekâ ile insan yaratıcılığı birleşerek benzersiz melodiler ortaya çıkıyor.</li>
+    <li>Canlı Performanslarda Artırılmış Gerçeklik (AR) KullanımıKonser deneyimleri, artık sadece sahne ile sınırlı değil. Sanatçılar, artırılmış gerçeklik teknolojisini kullanarak izleyicilere interaktif bir deneyim sunuyor. Dijital sahne tasarımları ve holografik gösteriler, müzik performanslarını tamamen yeni bir boyuta taşıyor.</li>
+    <li> <mark>Bağımsız</mark> Sanatçıların YükselişiDijital müzik platformları sayesinde bağımsız sanatçılar, kendi müziklerini üreterek doğrudan dinleyici kitlesiyle buluşabiliyor. Spotify, Apple Music ve Bandcamp gibi platformlar, müzisyenlere global bir erişim imkânı tanıyor ve büyük plak şirketlerine olan bağımlılığı azaltıyor.</li>
+    
+    </ol>
+   </ul>
+
+</aside>
+
+<hr>
+<aside>
+    <h2>🔥En Popüler Yazılar</h2>
+    <ul>
+        <li>Lo-Fi Müziğin Yükselişi: Neden Bu Kadar Rahatlatıcı?</li>
+        <li>Müzik ve Beyin: Ses Dalgalarının Ruh Halimize Etkisi</li>
+        <li><mark>2025’te En Çok Dinlenen Sanatçılar ve Albümler</mark></li>
+        <li>NFT ve Müzik: Dijital Sanatçılar İçin Yeni Bir Çağ mı?</li>
+        <li>Film Müziklerinin Gücü: Bir Sahneyi Unutulmaz Kılan Şarkılar</li>
+    </ul>
+</aside>
+<hr>
+
+<section>
+    <h2>📊 En Çok Dinlenen Sanatçılar (2025)</h2>
+    <div class="donut-wrapper">
+        <canvas id="topArtistsDonut" width="200" height="200"></canvas>
+      </div>
+      
+  </section>
+  
+  <script>
+    const ctx = document.getElementById('topArtistsDonut').getContext('2d');
+    const donutChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Rihanna', 'Taylor Swift', 'Eminem', 'Sezen Aksu'],
+        datasets: [{
+          data: [130, 140, 110, 85],
+          backgroundColor: ['#999999', '#bbbbbb', '#dddddd', '#cccccc'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: false,
+        cutout: '60%',
+        animation: {
+          animateScale: true,
+          animateRotate: true,
+          duration: 1200, // animasyon süresi (ms)
+          easing: 'easeOutBounce' // yumuşak-bouncy etki
+        },
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: '#444',
+              padding: 10
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: context => `${context.label}: ${context.parsed} milyon`
+            }
+          }
+        }
+      }
+    });
+  </script>
+  
+      
+
+
+ <hr>
+ <footer>
+    <h2>📰BÜLTENE KAYDOL</h2>
+    <P>Sen de yeni tarzda müzikleri keşfetmek için bültene kaydol</P>
+
+    <input type="email" placeholder=" e-posta adresiniz"/><button>Abone Ol</button>
+
+ </footer>
+
+
+
+
+
+ 
+</body>
+</html>

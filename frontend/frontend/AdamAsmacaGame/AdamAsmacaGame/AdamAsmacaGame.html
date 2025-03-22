@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam Asmaca Game</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+            padding: 30px;
+        }
+
+        #word {
+            font-size: 2rem;
+            letter-spacing: 10px;
+            margin-bottom: 20px;
+        }
+
+        #letters button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        #message {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        #lives {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        #adam {
+            position: relative;
+            width: 100px;
+            height: 200px;
+            margin: 0 auto 20px auto;
+        }
+
+        #adam div {
+            position: absolute;
+            background-color: #333;
+            display: none;
+        }
+
+        .kafa {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            top: 0;
+            left: 30px;
+            background-color: #444;
+        }
+
+        .govde {
+            width: 10px;
+            height: 60px;
+            top: 40px;
+            left: 45px;
+        }
+
+        .kol.sol {
+            width: 40px;
+            height: 5px;
+            top: 50px;
+            left: 5px;
+            transform: rotate(-30deg);
+        }
+
+        .kol.sag {
+            width: 40px;
+            height: 5px;
+            top: 50px;
+            left: 55px;
+            transform: rotate(30deg);
+        }
+
+        .bacak.sol {
+            width: 40px;
+            height: 5px;
+            top: 110px;
+            left: 5px;
+            transform: rotate(-30deg);
+            transform-origin: left;
+        }
+
+        .bacak.sag {
+            width: 40px;
+            height: 5px;
+            top: 110px;
+            left: 55px;
+            transform: rotate(30deg);
+            transform-origin: right;
+        }
+
+
+
+
+        #adam::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 150px;
+            background-color: #666;
+            left: -30px;
+            top: 0;
+        }
+
+        #adam::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 10px;
+            background-color: #666;
+            left: -30px;
+            top: 0;
+        }
+        #ip {
+            width: 2px;
+            height: 30px;
+            background-color: #444;
+            position: absolute;
+            top: 0;
+            left: 48px;
+        }
+        #ipucu {
+            transition: all 0.4s ease;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>🎩 Adam Asmaca</h1>
+    <div id="adam">
+        <div id="ip"></div>
+        <div class="kafa"></div>
+        <div class="govde"></div>
+        <div class="kol sol"></div>
+        <div class="kol sag"></div>
+        <div class="bacak sol"></div>
+        <div class="bacak sag"></div>
+    </div>
+
+    <p id="ipucuGosterici" style="cursor:pointer; text-decoration:underline; color:#0077cc;">
+        💬 İpucunu görmek ister misin?
+    </p>
+    <p id="ipucu" style="display:none;"></p>
+    
+
+    <p id="word">_ _ _ _ _</p>
+    <div id="letters"></div>
+    <p id="lives">Kalan Can: 6</p>
+    <p id="message"></p>
+
+    <button id="tekrarBtn" style="display:none; margin-top:20px;">🔁 Tekrar Oyna</button>
+
+    <div id="skorPanel" style="margin: 20px 0;">
+        🧮 Oynanan Oyun: <span id="toplamSkor">0</span> | 
+        🏆 Kazanılan: <span id="kazancSkor">0</span> | 
+        💀 Kaybedilen: <span id="kayipSkor">0</span>
+    </div>
+    
+
+    <script src="script.js"></script>
+    <script>
+        let toplamSkor = 0;
+let kazancSkor = 0;
+let kayipSkor = 0;
+       const kelimeler = [
+  { kelime: "javascript", ipucu: "Web geliştirmede en yaygın kullanılan dil" },
+  { kelime: "bilgisayar", ipucu: "Hesaplama yapabilen elektronik cihaz" },
+  { kelime: "internet", ipucu: "Dünya çapında bilgi ağı" },
+  { kelime: "oyun", ipucu: "Eğlence amaçlı etkileşimli yazılım" },
+  { kelime: "kodlama", ipucu: "Yazılım geliştirmenin temeli" },
+  { kelime: "tarayici", ipucu: "Web sayfalarını açar" },
+  { kelime: "html", ipucu: "Web sayfalarının iskelet dili" },
+  { kelime: "css", ipucu: "Web sitelerine görsel stil kazandırır" },
+  { kelime: "react", ipucu: "Bileşen tabanlı JavaScript kütüphanesi" },
+  { kelime: "veritabani", ipucu: "Verilerin düzenli olarak saklandığı sistem" },
+  { kelime: "algoritma", ipucu: "Adım adım çözüm yolu" },
+  { kelime: "github", ipucu: "Kod paylaşım ve sürüm kontrol platformu" },
+  { kelime: "terminal", ipucu: "Yazılı komutlarla çalışan arayüz" },
+  { kelime: "kütüphane", ipucu: "Hazır fonksiyonlar ve yapılar içeren yazılım aracı" },
+  { kelime: "bootstrap", ipucu: "Mobil uyumlu CSS kütüphanesi" },
+  { kelime: "programlama", ipucu: "Bilgisayara iş yaptırma sanatı" },
+  { kelime: "nesne", ipucu: "OOP'de temel yapı taşı" },
+  { kelime: "degisken", ipucu: "Veri tutan tanımlanabilir yapı" },
+  { kelime: "dongu", ipucu: "Tekrar eden işlem bloğu" },
+  { kelime: "kod", ipucu: "Makine tarafından yorumlanan talimat" },
+  { kelime: "bug", ipucu: "Kodda hata!" },
+  { kelime: "sunucu", ipucu: "Ağda hizmet sağlayan bilgisayar" },
+  { kelime: "klavye", ipucu: "Yazı yazmaya yarayan giriş aygıtı" },
+  { kelime: "fare", ipucu: "İmleç kontrol cihazı" },
+  { kelime: "web", ipucu: "WWW'nin kısaltması" },
+  { kelime: "pixel", ipucu: "Ekrandaki en küçük görüntü birimi" },
+  { kelime: "stil", ipucu: "Bir nesnenin görünümünü belirleyen ayarlar" },
+  { kelime: "blog", ipucu: "Kişisel içerik paylaşım alanı" },
+  { kelime: "lofi", ipucu: "Odak artıran müzik türü" },
+  { kelime: "mobil", ipucu: "Cep telefonu uyumlu tasarım" },
+  { kelime: "responsive", ipucu: "Cihaza göre şekil değiştiren tasarım" },
+  { kelime: "komut", ipucu: "Terminalde verilen talimat" },
+  { kelime: "debug", ipucu: "Hata ayıklama işlemi" },
+  { kelime: "link", ipucu: "Tıklanabilir bağlantı" },
+  { kelime: "tarayici", ipucu: "Web sayfalarını gezmek için kullanılır" }
+];
+
+
+let secilen = kelimeler[Math.floor(Math.random() * kelimeler.length)];
+let seciliKelime = secilen.kelime;
+let gizliKelime = [];
+
+let kalanCan = 6;
+let harfler = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ".split("");
+
+// İlk harfleri "_" ile gizle
+for (let i = 0; i < seciliKelime.length; i++) {
+    gizliKelime.push("_");
+}
+
+document.getElementById("word").textContent = gizliKelime.join(" ");
+document.getElementById("ipucu").textContent = "💡 İpucu: " + secilen.ipucu;
+
+//  Harf butonlarını oluştur
+const harfAlani = document.getElementById("letters");
+
+harfler.forEach(harf => {
+    const buton = document.createElement("button");
+    buton.textContent = harf;
+    buton.addEventListener("click", () => harfKontrol(harf, buton));
+    harfAlani.appendChild(buton);
+});
+
+//  Harf kontrol fonksiyonu
+function harfKontrol(harf, buton) {
+    buton.disabled = true;
+    let dogruMu = false;
+
+    for (let i = 0; i < seciliKelime.length; i++) {
+        if (seciliKelime[i].toUpperCase() === harf) {
+            gizliKelime[i] = seciliKelime[i];
+            dogruMu = true;
+        }
+    }
+
+    if (!dogruMu) {
+        kalanCan--;
+        adamCiz(kalanCan);
+        document.getElementById("lives").textContent = "Kalan Can: " + kalanCan;
+    }
+
+    document.getElementById("word").textContent = gizliKelime.join(" ");
+
+    //  Oyunu kazanma/kaybetme kontrolü
+    if (!gizliKelime.includes("_")) {
+        document.getElementById("message").textContent = "🎉 Tebrikler! Kelimeyi bildin!";
+        kazancSkor++;
+        toplamSkor++;
+        skorlariGuncelle();
+        localStorage.setItem("skorlar", JSON.stringify({ toplamSkor, kazancSkor, kayipSkor }));
+
+        document.getElementById("tekrarBtn").style.display = "inline-block";
+
+        harfAlani.innerHTML = "";
+    } else if (kalanCan === 0) {
+        document.getElementById("message").textContent = `💀 Kaybettin! Kelime: ${seciliKelime}`;
+        kayipSkor++;
+    toplamSkor++;
+    skorlariGuncelle();
+
+        document.getElementById("tekrarBtn").style.display = "inline-block";
+
+        harfAlani.innerHTML = "";
+    }
+}
+
+function adamCiz(hataSayisi) {
+    const parcalar = document.querySelectorAll("#adam div");
+    const index = 6 - hataSayisi;
+    if (parcalar[index]) {
+        parcalar[index].style.display = "block";
+    }
+}
+
+    document.getElementById("ipucu").textContent = "💡 İpucu: " + secilen.ipucu;
+    document.getElementById("ipucu").style.display = "none"; // ilk başta görünmesin
+    document.getElementById("ipucuGosterici").addEventListener("click", () => {
+    document.getElementById("ipucu").style.display = "block";
+    document.getElementById("ipucuGosterici").style.display = "none";
+});
+
+function skorlariGuncelle() {
+    document.getElementById("toplamSkor").textContent = toplamSkor;
+    document.getElementById("kazancSkor").textContent = kazancSkor;
+    document.getElementById("kayipSkor").textContent = kayipSkor;
+}
+
+// Skorları kaydet:
+localStorage.setItem("skorlar", JSON.stringify({ toplamSkor, kazancSkor, kayipSkor }));
+
+// Sayfa yüklenince:
+let kayitliSkor = JSON.parse(localStorage.getItem("skorlar"));
+if (kayitliSkor) {
+    toplamSkor = kayitliSkor.toplamSkor;
+    kazancSkor = kayitliSkor.kazancSkor;
+    kayipSkor = kayitliSkor.kayipSkor;
+    skorlariGuncelle();
+}
+
+
+
+document.getElementById("tekrarBtn").addEventListener("click", () => {
+    location.reload(); // Sayfayı yeniden yükler
+});
+
+    </script>
+
+</body>
+</html>
